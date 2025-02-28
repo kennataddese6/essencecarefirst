@@ -29,10 +29,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Toaster />
-        <div className="bg-black h-screen bg-[url(/mobileherobg.png)] md:bg-[url(/repear.jpeg)] bg-no-repeat w-full bg-cover">
-          <Navbar />
-          {children}
-        </div>
+        <Navbar />
+        {children}
       </body>
     </html>
   )
