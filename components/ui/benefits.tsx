@@ -4,7 +4,7 @@ import { FaUserDoctor } from "react-icons/fa6"
 import { GiHealthPotion } from "react-icons/gi"
 const Benefits = () => {
   return (
-    <div>
+    <div className="mt-16">
       <h1 className="text-center text-4xl text-[#17323D] font-semibold">
         Why choose us
       </h1>

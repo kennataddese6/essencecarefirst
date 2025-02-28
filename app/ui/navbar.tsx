@@ -7,8 +7,8 @@ export default function Navbar() {
   const [showMobileNav, setShowMobileNav] = useState(false)
   return (
     <nav
-      className={`md:flex bg-white fixed z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto   ${
-        showMobileNav ? " h-screen animate-fadein" : ""
+      className={`md:flex bg-transparent fixed z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto    ${
+        showMobileNav ? " h-screen animate-fadein bg-[#bee2ee]" : ""
       }`}
     >
       <div className="text-black  text-xl md:text-2xl font-bold mb-5 md:mb-0 flex justify-between items-center">
@@ -37,19 +37,19 @@ export default function Navbar() {
           showMobileNav ? "" : "hidden"
         }`}
       >
-        <li className="text-[#17323D] font-extrabold text py-4 md:py-0 border-t-2 border-b-2 border-neutral-100 md:border-none cursor-pointer">
+        <li className="text-[#17323D] font-extrabold text py-4 md:py-0   md:border-none cursor-pointer">
           Home
         </li>
-        <li className="text-neutral-600 py-4 md:py-0  border-b-2 border-neutral-100 md:border-none cursor-pointer">
+        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
           Shop
         </li>
-        <li className="text-neutral-600 py-4 md:py-0  border-b-2 border-neutral-100 md:border-none cursor-pointer">
+        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
           About
         </li>
-        <li className="text-neutral-600 py-4 md:py-0  border-b-2 border-neutral-100 md:border-none cursor-pointer">
+        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
           Contact
         </li>
-        <li className="text-neutral-600 py-4 md:py-0  border-b-2 border-neutral-100 md:border-none cursor-pointer">
+        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
           Sign In
         </li>
       </ul>
