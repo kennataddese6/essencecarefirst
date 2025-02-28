@@ -12,7 +12,7 @@ const Benefits = () => {
         We provide the best choices for you. Adjust it to your health needs and
         make sure you get them whenever you need them.
       </p>
-      <div className=" flex md:px-20 justify-center md:justify-between flex-wrap  my-6">
+      <div className=" flex md:px-20 justify-center md:justify-between flex-wrap  mt-12 mb-24">
         <div className="p-8 bg-[#F4F4F4]">
           <GiHealthPotion
             fontSize={72}
