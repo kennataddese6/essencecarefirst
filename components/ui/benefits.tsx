@@ -1,4 +1,6 @@
+"use client"
 import { inter } from "@/lib/font"
+import { motion } from "motion/react"
 import { AiOutlineMedicineBox } from "react-icons/ai"
 import { FaUserDoctor } from "react-icons/fa6"
 import { GiHealthPotion } from "react-icons/gi"
@@ -13,7 +15,12 @@ const Benefits = () => {
         make sure you get them whenever you need them.
       </p>
       <div className=" flex md:px-20 justify-center md:justify-between flex-wrap  mt-12 mb-24">
-        <div className="p-8 bg-[#F4F4F4]">
+        <motion.div
+          className="p-8"
+          initial={{ translateY: 50, opacity: 0 }}
+          whileInView={{ translateY: 0, opacity: 1 }}
+          transition={{ duration: 0.6, type: "spring", delay: 0.4 }}
+        >
           <GiHealthPotion
             fontSize={72}
             className="text-[#17323D] block mx-auto"
@@ -24,8 +31,13 @@ const Benefits = () => {
           <p className="text-[#5B5B5B] text-center">
             Our Products are very high quality <br /> and durable
           </p>
-        </div>
-        <div className=" p-8 bg-[#F4F4F4]">
+        </motion.div>
+        <motion.div
+          className="p-8"
+          initial={{ translateY: 50, opacity: 0 }}
+          whileInView={{ translateY: 0, opacity: 1 }}
+          transition={{ duration: 0.8, type: "spring", delay: 0.6 }}
+        >
           <FaUserDoctor
             fontSize={72}
             className="text-[#17323D] block mx-auto"
@@ -36,8 +48,13 @@ const Benefits = () => {
           <p className="text-[#5B5B5B] text-center">
             Our Products are very high quality <br /> and durable
           </p>
-        </div>
-        <div className=" p-8 bg-[#F4F4F4]">
+        </motion.div>
+        <motion.div
+          className="p-8"
+          initial={{ translateY: 50, opacity: 0 }}
+          whileInView={{ translateY: 0, opacity: 1 }}
+          transition={{ duration: 1, type: "spring", delay: 0.7 }}
+        >
           <AiOutlineMedicineBox
             fontSize={72}
             className="text-[#17323D] block mx-auto"
@@ -48,8 +65,13 @@ const Benefits = () => {
           <p className="text-[#5B5B5B] text-center">
             Our Products are very high quality <br /> and durable
           </p>
-        </div>
-        <div className=" p-8 bg-[#F4F4F4]">
+        </motion.div>
+        <motion.div
+          className="p-8"
+          initial={{ translateY: 50, opacity: 0 }}
+          whileInView={{ translateY: 0, opacity: 1 }}
+          transition={{ duration: 1.2, type: "spring", delay: 0.8 }}
+        >
           <AiOutlineMedicineBox
             fontSize={72}
             className="text-[#17323D] block mx-auto"
@@ -60,7 +82,7 @@ const Benefits = () => {
           <p className="text-[#5B5B5B] text-center">
             Our Products are very high quality <br /> and durable
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   )
