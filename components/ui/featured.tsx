@@ -34,13 +34,13 @@ const Featured = () => {
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Featured Products
       </h1>
-      <div className="flex justify-center flex-wrap md:flex-nowrap gap-4 md:justify-between  mx-20 mt-12">
+      <div className="flex justify-center flex-wrap md:flex-nowrap gap-8 md:justify-between  mx-20 mt-12">
         {products.map((product, index) => (
           <div
             key={index}
-            className="w-full relative rounded-3xl overflow-hidden min-w-80 max-w-md mx-auto bg-gradient-to-r from-[#1D2235] to-[#121318] p-8 "
+            className="w-full relative rounded-3xl overflow-hidden min-w-80 max-w-md mx-auto bg-gradient-to-r from-[#17323D] to-[#0b181e] p-8 "
           >
-            <Rays />
+            {/* <Rays /> */}
             <Beams />
             <div className="relative z-10">
               <Lens hovering={hovering} setHovering={setHovering}>
@@ -421,13 +421,13 @@ const Beams = () => {
       className="absolute top-0 left-1/2 -translate-x-1/2 w-full pointer-events-none"
     >
       <g filter="url(#filter0_f_120_7473)">
-        <circle cx="34" cy="52" r="114" fill="#6925E7" />
+        <circle cx="34" cy="52" r="114" fill="#99c7d6" />
       </g>
       <g filter="url(#filter1_f_120_7473)">
-        <circle cx="332" cy="24" r="102" fill="#8A4BFF" />
+        <circle cx="332" cy="24" r="102" fill="#87b8c6" />
       </g>
       <g filter="url(#filter2_f_120_7473)">
-        <circle cx="191" cy="53" r="102" fill="#802FE3" />
+        <circle cx="191" cy="53" r="102" fill="#d8f4fb" />
       </g>
       <defs>
         <filter
