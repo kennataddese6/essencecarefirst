@@ -5,12 +5,12 @@ import { GiHealthPotion } from "react-icons/gi"
 const Benefits = () => {
   return (
     <div className="mt-16">
-      <h1 className="text-center text-4xl text-[#17323D] font-semibold">
+      <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Why choose us
       </h1>
-      <p className="text-center text-[#5B5B5B] text-xl my-3">
-        We provide the best choices for you. Adjust it to your health needs{" "}
-        <br /> and make sure you get them whenever you need them.
+      <p className="text-center text-[#5B5B5B] text-md mx-2 md:text-xl my-3 md:w-1/2 block md:mx-auto">
+        We provide the best choices for you. Adjust it to your health needs and
+        make sure you get them whenever you need them.
       </p>
       <div className=" flex md:px-20 justify-center md:justify-between flex-wrap  my-6">
         <div className="p-8 bg-[#F4F4F4]">
