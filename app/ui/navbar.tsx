@@ -1,9 +1,12 @@
 "use client"
 import Image from "next/image"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { CiMenuFries } from "react-icons/ci"
 import { MdClose } from "react-icons/md"
 export default function Navbar() {
+  const pathname = usePathname()
   const [showMobileNav, setShowMobileNav] = useState(false)
   const [showNav, setShowNav] = useState(false)
   function scrollPosition() {
@@ -20,6 +23,9 @@ export default function Navbar() {
     })
   }, [])
 
+  useEffect(() => {
+    setShowMobileNav(false)
+  }, [pathname])
   return (
     <nav
       className={`md:flex    fixed z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto    ${
@@ -55,9 +61,11 @@ export default function Navbar() {
         <li className="text-[#17323D] font-extrabold text py-4 md:py-0   md:border-none cursor-pointer">
           Home
         </li>
-        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
-          Shop
-        </li>
+        <Link href={"/products"} className="no-underline">
+          <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
+            Products
+          </li>
+        </Link>
         <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
           About
         </li>
