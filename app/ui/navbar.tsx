@@ -58,23 +58,51 @@ export default function Navbar() {
           showMobileNav ? "" : "hidden"
         }`}
       >
-        <li className="text-[#17323D] font-extrabold text py-4 md:py-0   md:border-none cursor-pointer">
-          Home
-        </li>
+        <Link href={"/"} className="no-underline">
+          <li
+            className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
+              pathname === "/" && "font-extrabold animate-fadein"
+            }`}
+          >
+            Home
+          </li>
+        </Link>
         <Link href={"/products"} className="no-underline">
-          <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
+          <li
+            className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
+              pathname === "/products" && "font-extrabold animate-fadein"
+            }`}
+          >
             Products
           </li>
         </Link>
-        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
-          About
-        </li>
-        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
-          Contact
-        </li>
-        <li className="text-neutral-600 py-4 md:py-0   md:border-none cursor-pointer">
-          Sign In
-        </li>
+        <Link href={"/about"} className="no-underline">
+          <li
+            className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
+              pathname === "/about" && "font-extrabold animate-fadein"
+            }`}
+          >
+            About
+          </li>
+        </Link>
+        <Link href={"/contact"} className="no-underline">
+          <li
+            className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
+              pathname === "/contact" && "font-extrabold animate-fadein"
+            }`}
+          >
+            Contact
+          </li>
+        </Link>
+        <Link href={"/signin"} className="no-underline">
+          <li
+            className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
+              pathname === "/signin" && "font-extrabold animate-fadein"
+            }`}
+          >
+            Sign In
+          </li>
+        </Link>
       </ul>
     </nav>
   )
