@@ -28,9 +28,11 @@ export default function Navbar() {
   }, [pathname])
   return (
     <nav
-      className={`md:flex    fixed z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto    ${
+      className={`md:flex fixed top-0 z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto    ${
         showMobileNav ? "h-screen animate-fadein bg-[#bee2ee]" : ""
-      } ${showNav ? "bg-white/40 backdrop-blur-xl animate-fadein" : ""}`}
+      } ${pathname !== "/" && "bg-white/40 backdrop-blur-xl"} ${
+        showNav ? "bg-white/40 backdrop-blur-xl animate-fadein" : ""
+      }`}
     >
       <div className="text-black  text-xl md:text-2xl font-bold mb-5 md:mb-0 flex justify-between items-center">
         <Image
