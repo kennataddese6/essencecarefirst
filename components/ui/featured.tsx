@@ -35,8 +35,15 @@ const Featured = () => {
       </h1>
       <div className="flex justify-center flex-wrap md:flex-nowrap gap-8 md:justify-between  mx-20 mt-12">
         {products.map((product, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ opacity: 0, translateY: 40 }}
+            whileInView={{ opacity: 1, translateY: 0 }}
+            transition={{
+              delay: 0.1 + index / 3,
+              duration: 0.9,
+              type: "spring",
+            }}
             className="w-full relative rounded-3xl overflow-hidden min-w-80 max-w-md mx-auto bg-gradient-to-r from-[#17323D] to-[#0b181e] p-8 "
           >
             {/* <Rays /> */}
@@ -65,7 +72,7 @@ const Featured = () => {
                 </p>
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
