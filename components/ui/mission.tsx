@@ -6,7 +6,7 @@ const Misson = () => {
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Our Mission
       </h1>
-      <div className="mt-16 flex md:mx-20  rounded-3xl overflow-hidden border-2 border-[#b5d9ef]">
+      <div className="mt-16 flex md:mx-20  rounded-3xl overflow-hidden border-2 border-[#ecf3f7]">
         <div className="md:w-1/2 w-full">
           <Image
             src={"/mission.jpeg"}
@@ -16,7 +16,7 @@ const Misson = () => {
             className="block mx-auto  w-full bg-cover "
           />
         </div>
-        <div className="md:w-1/2 flex items-center md:pl-12 md:pr-24">
+        <div className="md:w-1/2 flex items-center md:pl-12 md:pr-20">
           <div>
             <h1 className="text-center md:text-start text-3xl md:text-4xl text-[#17323D] font-semibold">
               Your health is more important to us
