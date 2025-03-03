@@ -19,7 +19,7 @@ const Footer = () => {
       </div>
       <div className="min-w-52 ">
         <h1 className="text-xl text-[#17323d] font-semibold">Important</h1>
-        <div className="mt-6 flex flex-col gap-y-4 text-[#17323d]">
+        <div className="mt-6 flex flex-col gap-y-8 text-[#17323d]">
           <p className="cursor-pointer">Home</p>
           <p className="cursor-pointer">Shop</p>
           <p className="cursor-pointer">About</p>
