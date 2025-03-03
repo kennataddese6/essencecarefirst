@@ -19,7 +19,7 @@ const words = [
 ]
 export default function Hero() {
   return (
-    <div className=" h-screen flex flex-wrap items-center px-4 md:px-20  bg-[url(/lovely-hero.jpeg)] bg-cover md:bg-auto   bg-no-repeat">
+    <div className=" h-screen flex flex-wrap items-center px-4 md:px-20  bg-[url(/lovely-hero.jpeg)] bg-cover md:bg-auto   bg-no-repeat rounded-b-3xl">
       <div className=" md:w-1/2 w-full mt-8 md:mt-0 ">
         <h1 className="font-semibold text-center md:text-start text-3xl md:text-5xl md:pr-16 text-[#17323D] my-3">
           {/* <TypewriterEffect words={words} /> */}
