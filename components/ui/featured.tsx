@@ -49,7 +49,7 @@ const Featured = () => {
               duration: 0.9,
               type: "spring",
             }}
-            className="w-full relative rounded-3xl overflow-hidden min-w-80 max-w-md mx-auto bg-gradient-to-r from-[#17323D] to-[#0b181e] p-8 "
+            className="w-full relative rounded-3xl overflow-hidden min-w-80 max-w-md mx-auto bg-gradient-to-r bg-black p-8 "
           >
             {/* <Rays /> */}
             <Beams />
