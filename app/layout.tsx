@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Starter Web UI",
-  description: "To be used during project initalization",
+  title: "Essence care first",
+  description: "The best medical equipment provider in Ethiopia.",
 }
 
 export default function RootLayout({
