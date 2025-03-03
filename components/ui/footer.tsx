@@ -10,7 +10,7 @@ import { IoIosMail } from "react-icons/io"
 import { MdLocationOn } from "react-icons/md"
 const Footer = () => {
   return (
-    <div className="bg-[#8ac1e0] flex md:justify-between py-12 mt-24 px-20 ">
+    <footer className="bg-[#8ac1e0] flex flex-wrap md:justify-between py-12 mt-24 px-20 ">
       <div>
         <Image src={"/logo.png"} alt="Logo" width={100} height={100} />
         <span className="px-4 text-[#17323d]">
@@ -56,7 +56,7 @@ const Footer = () => {
           <FaTwitter className="inline mx-6  text-xl text-[#17323d] hover:text-blue-500 cursor-pointer" />
         </div>
       </div>
-    </div>
+    </footer>
   )
 }
 

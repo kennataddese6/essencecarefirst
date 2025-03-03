@@ -6,7 +6,7 @@ const Misson = () => {
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Our Mission
       </h1>
-      <div className="mt-16 flex md:mx-20  rounded-3xl overflow-hidden border-2 border-[#ecf3f7]">
+      <div className="mt-16 flex flex-wrap gap-12 md:gap-0 md:mx-20  rounded-3xl overflow-hidden border-2 border-[#ecf3f7]">
         <div className="md:w-1/2 w-full">
           <Image
             src={"/mission.jpeg"}
