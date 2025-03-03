@@ -20,6 +20,7 @@ const eslintConfig = [
       "react/no-unescaped-entities": "off", // Disable unescaped characters warning
       "react-hooks/exhaustive-deps": "off", // Disable missing dependencies warning
       "react/no-children-prop": "off",
+      "@typescript-eslint/no-unused-expressions": "off",
     },
   },
 ]
