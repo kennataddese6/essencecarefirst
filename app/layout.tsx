@@ -1,3 +1,4 @@
+import Footer from "@/components/ui/footer"
 import { Toaster } from "@/components/ui/sonner"
 import { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
@@ -31,6 +32,7 @@ export default function RootLayout({
         <Toaster />
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   )
