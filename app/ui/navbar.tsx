@@ -1,15 +1,30 @@
 "use client"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { CiMenuFries } from "react-icons/ci"
 import { MdClose } from "react-icons/md"
 export default function Navbar() {
   const [showMobileNav, setShowMobileNav] = useState(false)
+  const [showNav, setShowNav] = useState(false)
+  function scrollPosition() {
+    const position = document.documentElement.scrollTop
+    if (position > 725) {
+      setShowNav(true)
+    } else {
+      setShowNav(false)
+    }
+  }
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      scrollPosition()
+    })
+  }, [])
+
   return (
     <nav
-      className={`md:flex bg-transparent fixed z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto    ${
-        showMobileNav ? " h-screen animate-fadein bg-[#bee2ee]" : ""
-      }`}
+      className={`md:flex    fixed z-50 w-full md:justify-between items-center md:px-20 px-4 py-1 md:h-auto    ${
+        showMobileNav ? "h-screen animate-fadein bg-[#bee2ee]" : ""
+      } ${showNav ? "bg-white/40 backdrop-blur-xl animate-fadein" : ""}`}
     >
       <div className="text-black  text-xl md:text-2xl font-bold mb-5 md:mb-0 flex justify-between items-center">
         <Image
