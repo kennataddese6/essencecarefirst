@@ -10,14 +10,14 @@ import { IoIosMail } from "react-icons/io"
 import { MdLocationOn } from "react-icons/md"
 const Footer = () => {
   return (
-    <footer className="bg-[#8ac1e0] flex flex-wrap md:justify-between py-12 mt-24 px-20 ">
+    <footer className="bg-[#8ac1e0] flex flex-wrap gap-12 md:gap-0 md:justify-between py-12 mt-24 px-8 md:px-20 ">
       <div>
         <Image src={"/logo.png"} alt="Logo" width={100} height={100} />
-        <span className="px-4 text-[#17323d]">
+        <span className="md:px-4 text-[#17323d]">
           Providing the best medical equipments in Ethiopia
         </span>
       </div>
-      <div className="min-w-52">
+      <div className="min-w-52 ">
         <h1 className="text-xl text-[#17323d] font-semibold">Important</h1>
         <div className="mt-6 flex flex-col gap-y-4 text-[#17323d]">
           <p className="cursor-pointer">Home</p>
