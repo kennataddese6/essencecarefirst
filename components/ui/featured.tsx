@@ -5,7 +5,12 @@ import Image from "next/image"
 import { useState } from "react"
 
 const Featured = () => {
-  const [hovering, setHovering] = useState(false)
+  const [hovering0, setHovering0] = useState(false)
+  const [hovering1, setHovering1] = useState(false)
+  const [hovering2, setHovering2] = useState(false)
+  const [hovering3, setHovering3] = useState(false)
+  const [hoveredIndex, setHoveredIndex] = useState(null)
+
   const products = [
     {
       title: "MRI Scanner",
@@ -49,7 +54,32 @@ const Featured = () => {
             {/* <Rays /> */}
             <Beams />
             <div className="relative z-10">
-              <Lens hovering={hovering} setHovering={setHovering}>
+              <Lens
+                hovering={
+                  index == 0
+                    ? hovering0
+                    : index == 1
+                    ? hovering1
+                    : index == 2
+                    ? hovering2
+                    : index == 3
+                    ? hovering3
+                    : hovering3
+                }
+                setHovering={
+                  index == 0
+                    ? setHovering0
+                    : index == 1
+                    ? setHovering1
+                    : index == 2
+                    ? setHovering2
+                    : index == 3
+                    ? setHovering3
+                    : setHovering0
+                }
+                setHoveredIndex={setHoveredIndex}
+                index={index}
+              >
                 <Image
                   src={product.image}
                   alt="image"
@@ -60,7 +90,7 @@ const Featured = () => {
               </Lens>
               <motion.div
                 animate={{
-                  filter: hovering ? "blur(2px)" : "blur(0px)",
+                  filter: hoveredIndex == index ? "blur(2px)" : "blur(0px)",
                 }}
                 className="py-4 relative z-20"
               >

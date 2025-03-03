@@ -15,6 +15,8 @@ interface LensProps {
   isFocusing?: () => void
   hovering?: boolean
   setHovering?: (hovering: boolean) => void
+  setHoveredIndex?: any
+  index?: number
 }
 
 export const Lens: React.FC<LensProps> = ({
@@ -25,6 +27,8 @@ export const Lens: React.FC<LensProps> = ({
   position = { x: 200, y: 150 },
   hovering,
   setHovering,
+  setHoveredIndex,
+  index,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -49,8 +53,12 @@ export const Lens: React.FC<LensProps> = ({
       className="relative overflow-hidden rounded-lg z-20"
       onMouseEnter={() => {
         setIsHovering(true)
+        setHoveredIndex(index)
       }}
-      onMouseLeave={() => setIsHovering(false)}
+      onMouseLeave={() => {
+        setIsHovering(false)
+        setHoveredIndex(null)
+      }}
       onMouseMove={handleMouseMove}
     >
       {children}
