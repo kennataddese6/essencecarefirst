@@ -12,7 +12,7 @@ export default function Location() {
         >
           Where we reside
         </motion.h2>
-        <div className="my-4 w-28 h-0.5 bg-black lg:ml-2 lg:mr-0 bg-gradient-to-r from-green-400 to-blue-500"></div>
+        <div className="my-4 w-28 h-0.5 bg-black lg:ml-2 lg:mr-0 bg-gradient-to-r from-sky-800 to-blue-500"></div>
         <p className="text-center md:text-start text-[#5B5B5B] text-md mx-2 md:text-xl my-3 ">
           {" "}
           Our address in bole in front of Ethiopian airlines on the first left
@@ -25,7 +25,7 @@ export default function Location() {
           height="450"
           allowFullScreen
           loading="lazy"
-          className="w-full rounded-3xl"
+          className="w-full rounded-3xl shadow-xl shadow-neutral-400"
         ></iframe>
       </div>
     </div>
