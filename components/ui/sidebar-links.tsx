@@ -11,11 +11,11 @@ const SidebarLinks = () => {
   const links = [
     {
       label: "Dasboard",
-      href: "/ui",
+      href: "/dashboard",
       icon: (
         <IconDashboard
           className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/ui" || pathname === "/ui/3dcard-rotation"
+            pathname === "/dashboard"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}
@@ -24,11 +24,11 @@ const SidebarLinks = () => {
     },
     {
       label: "Categories",
-      href: "/ui",
+      href: "/dashboard/categories",
       icon: (
         <IconList
           className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/ui" || pathname === "/ui/3dcard-rotation"
+            pathname === "/dashboard/categories"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}
@@ -37,11 +37,11 @@ const SidebarLinks = () => {
     },
     {
       label: "Products",
-      href: "/ui",
+      href: "/dashboard/products",
       icon: (
         <IconCube
           className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/ui" || pathname === "/ui/3dcard-rotation"
+            pathname === "/dashboard/products"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}
@@ -50,11 +50,11 @@ const SidebarLinks = () => {
     },
     {
       label: "Users",
-      href: "/ui",
+      href: "/dashboard/users",
       icon: (
         <IconUser
           className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/ui" || pathname === "/ui/3dcard-rotation"
+            pathname === "/dashboard/users"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}
