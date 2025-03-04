@@ -14,7 +14,7 @@ const Benefits = () => {
         We provide the best choices for you. Adjust it to your health needs and
         make sure you get them whenever you need them.
       </p>
-      <div className=" flex md:px-20 justify-center md:justify-between flex-wrap  mt-12 mb-24">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:mx-20 mt-12 mb-24">
         <motion.div
           className="p-8"
           initial={{ translateY: 50, opacity: 0 }}
