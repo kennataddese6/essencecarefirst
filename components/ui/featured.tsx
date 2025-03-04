@@ -38,7 +38,7 @@ const Featured = () => {
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Featured Products
       </h1>
-      <div className="flex justify-center flex-wrap md:flex-nowrap gap-8 md:justify-between  mx-20 mt-12">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  mx-20 mt-12">
         {products.map((product, index) => (
           <motion.div
             key={index}
@@ -49,7 +49,7 @@ const Featured = () => {
               duration: 0.9,
               type: "spring",
             }}
-            className="w-full relative rounded-3xl overflow-hidden min-w-80 max-w-md mx-auto bg-gradient-to-r bg-black p-8 "
+            className="w-full relative rounded-3xl overflow-hidden  max-w-md mx-auto bg-gradient-to-r bg-black p-8 "
           >
             {/* <Rays /> */}
             <Beams />
