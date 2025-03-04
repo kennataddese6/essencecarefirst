@@ -21,9 +21,15 @@ const Footer = () => {
       <div className="min-w-52 ">
         <h1 className="text-xl text-[#17323d] font-semibold">Important</h1>
         <div className="mt-6 flex flex-col gap-y-8 text-[#17323d]">
-          <p className="cursor-pointer">Home</p>
-          <p className="cursor-pointer">Shop</p>
-          <p className="cursor-pointer">About</p>
+          <Link href={"/"} className="no-underline">
+            <p className="cursor-pointer">Home</p>
+          </Link>
+          <Link href={"/products"} className="no-underline">
+            <p className="cursor-pointer">Shop</p>
+          </Link>
+          <Link href={"/about"} className="no-underline">
+            <p className="cursor-pointer">About</p>
+          </Link>
           <Link href={"/signin"} className="no-underline">
             <p className="cursor-pointer">Sign In</p>
           </Link>
