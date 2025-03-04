@@ -17,11 +17,21 @@ export default function SignupFormDemo() {
       <form className="my-8" onSubmit={handleSubmit}>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
-          <Input id="email" placeholder="Enter email or user Id" type="email" />
+          <Input
+            id="email"
+            placeholder="Enter email or user Id"
+            type="email"
+            required
+          />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
-          <Input id="password" placeholder="••••••••" type="password" />
+          <Input
+            id="password"
+            placeholder="••••••••"
+            type="password"
+            required
+          />
         </LabelInputContainer>
 
         <button
