@@ -5,14 +5,13 @@ export default function Location() {
     <div className="flex flex-wrap-reverse my-5 mx-4 md:mx-20 mt-24">
       <div className="w-full lg:w-1/2 rounded-3xl">
         <motion.h2
-          className="  lg:mt-14 md:text-4xl text-[#17323D] font-semibold"
+          className="text-center mt-12 md:mt-0 md:text-start text-3xl md:text-4xl text-[#17323D] font-semibold"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.5, ease: "easeIn" }}
         >
           Where we reside
         </motion.h2>
-        <div className="my-4 w-28 h-0.5 bg-black lg:ml-2 lg:mr-0 bg-gradient-to-r from-sky-800 to-blue-500"></div>
         <p className="text-center md:text-start text-[#5B5B5B] text-md mx-2 md:text-xl my-3 ">
           {" "}
           Our address in bole in front of Ethiopian airlines on the first left

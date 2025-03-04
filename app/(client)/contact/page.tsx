@@ -99,12 +99,16 @@ export default function Page() {
               required
             />
           </LabelInputContainer>
-          <textarea
-            className="mt-5 h-32 w-full border border-slate-400 p-3 focus:outline-blue-500"
-            placeholder="Message"
-            name="message"
-            required
-          ></textarea>
+          <LabelInputContainer className="mb-4 mt-5">
+            <Label htmlFor="first-name">Message</Label>
+            <textarea
+              className="mt-5 h-32 w-full border border-slate-400 p-3 focus:outline-blue-500"
+              placeholder="Enter Message"
+              name="message"
+              required
+            ></textarea>
+          </LabelInputContainer>
+
           <button
             className="mt-4 w-full bg-blue-500 p-2 text-white"
             // onClick={() => toast.success('Success', { duration: 10000 })}
