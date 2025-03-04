@@ -96,15 +96,6 @@ export default function Navbar() {
             Contact
           </li>
         </Link>
-        <Link href={"/signin"} className="no-underline">
-          <li
-            className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
-              pathname === "/signin" && "font-extrabold animate-fadein"
-            }`}
-          >
-            Sign In
-          </li>
-        </Link>
       </ul>
     </nav>
   )

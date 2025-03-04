@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import {
   FaFacebook,
   FaInstagram,
@@ -23,7 +24,9 @@ const Footer = () => {
           <p className="cursor-pointer">Home</p>
           <p className="cursor-pointer">Shop</p>
           <p className="cursor-pointer">About</p>
-          <p className="cursor-pointer">Sign In</p>
+          <Link href={"/signin"} className="no-underline">
+            <p className="cursor-pointer">Sign In</p>
+          </Link>
         </div>
       </div>
       <div className="min-w-52">
