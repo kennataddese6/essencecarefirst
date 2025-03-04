@@ -2,6 +2,7 @@ import Benefits from "@/components/ui/benefits"
 import Featured from "@/components/ui/featured"
 import Hero from "@/components/ui/hero"
 import Lead from "@/components/ui/lead"
+import Location from "@/components/ui/location"
 import Misson from "@/components/ui/mission"
 
 export default function Page() {
@@ -12,6 +13,7 @@ export default function Page() {
       <Featured />
       <Lead />
       <Misson />
+      <Location />
     </>
   )
 }

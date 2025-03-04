@@ -6,14 +6,14 @@ const Misson = () => {
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Our Mission
       </h1>
-      <div className="mt-16 flex flex-wrap gap-12 md:gap-0 md:mx-20  rounded-3xl overflow-hidden border-2 border-[#ecf3f7]">
+      <div className="mt-16 flex flex-wrap gap-12 md:gap-0 md:mx-20   overflow-hidden">
         <div className="md:w-1/2 w-full">
           <Image
             src={"/mission.jpeg"}
             alt="Mission Image"
             width={1200}
             height={600}
-            className="block mx-auto  w-full bg-cover "
+            className="block mx-auto  w-full bg-cover rounded-3xl shadow-2xl shadow-neutral-600"
           />
         </div>
         <div className="md:w-1/2 flex items-center md:pl-12 md:pr-20">
