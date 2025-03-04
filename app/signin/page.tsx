@@ -10,38 +10,40 @@ export default function SignupFormDemo() {
     console.log("Form submitted")
   }
   return (
-    <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4 mt-24 md:p-8 shadow-input bg-white ">
-      <h2 className="font-bold text-3xl text-neutral-800  text-center">
-        Welcome to admin
-      </h2>
-      <form className="my-8" onSubmit={handleSubmit}>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
-          <Input
-            id="email"
-            placeholder="Enter email or user Id"
-            type="email"
-            required
-          />
-        </LabelInputContainer>
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="password">Password</Label>
-          <Input
-            id="password"
-            placeholder="••••••••"
-            type="password"
-            required
-          />
-        </LabelInputContainer>
+    <div className="w-full h-screen  flex items-center">
+      <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4  md:p-8 shadow-input bg-white ">
+        <h2 className="font-bold text-3xl text-neutral-800  text-center">
+          Welcome to admin
+        </h2>
+        <form className="my-8" onSubmit={handleSubmit}>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="email">Email Address</Label>
+            <Input
+              id="email"
+              placeholder="Enter email or user Id"
+              type="email"
+              required
+            />
+          </LabelInputContainer>
+          <LabelInputContainer className="mb-4">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              placeholder="••••••••"
+              type="password"
+              required
+            />
+          </LabelInputContainer>
 
-        <button
-          className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
-          type="submit"
-        >
-          Sign In &rarr;
-          <BottomGradient />
-        </button>
-      </form>
+          <button
+            className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
+            type="submit"
+          >
+            Sign In &rarr;
+            <BottomGradient />
+          </button>
+        </form>
+      </div>
     </div>
   )
 }
