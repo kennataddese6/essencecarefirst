@@ -1,5 +1,6 @@
 "use client"
 
+import ProductCard from "@/app/ui/products-card"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
   Sheet,
@@ -10,7 +11,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { FaFilter } from "react-icons/fa6"
-import ProductCard from "../ui/products-card"
 
 const Products = () => {
   const products = [
@@ -43,7 +43,7 @@ const Products = () => {
     { name: "Assistive" },
   ]
   return (
-    <div className="mt-32  md:mx-20 md:flex flex-wrap justify-center md:justify-between items-start">
+    <div className="mt-20 md:mt-32  md:mx-20 md:flex flex-wrap justify-center md:justify-between items-start">
       <Sheet>
         <SheetTrigger className="px-8 py-2 border-2 border-gray-300 rounded-lg m-4 md:hidden">
           Filter <FaFilter className="inline" />
