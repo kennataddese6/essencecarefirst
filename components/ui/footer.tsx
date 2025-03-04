@@ -34,15 +34,15 @@ const Footer = () => {
         <div className="mt-6 flex flex-col gap-y-8">
           <p className="text-[#17323d]">
             <FaPhone className="inline mx-1" />
-            +251989985333
+            +251984242526
           </p>
           <p className="text-[#17323d]">
             <FaPhone className="inline mx-1" />
-            +251989985333
+            +251985242526
           </p>
           <p className="text-[#17323d]">
             <IoIosMail className="inline mx-1 text-xl" />
-            essence@gmail.com
+            essencetradingplc@gmail.com
           </p>
           <p className="text-[#17323d]">
             <MdLocationOn className="inline mx-1 text-xl" />
