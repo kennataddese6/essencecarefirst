@@ -1,7 +1,8 @@
 "use server"
-
 import { saveImage } from "@/lib/save-file"
+import fs from "fs"
 import { revalidatePath } from "next/cache"
+import path from "path"
 import { prisma } from "../lib/prisma"
 
 export const createCategory = async (prevState: any, formData: FormData) => {
@@ -61,6 +62,35 @@ export const deleteCategory = async (formData: FormData) => {
       })
       console.log(categories)
       revalidatePath("/dashboard/categories")
+    } else {
+      console.error("Invalid category ID. Could not convert to a number.")
+    }
+  } else {
+    console.error("Category ID is null.")
+  }
+}
+export const deleteProduct = async (formData: FormData) => {
+  const productIdString = formData.get("productId") as string | null
+  if (productIdString !== null) {
+    const productId = parseInt(productIdString, 10)
+    if (!isNaN(productId)) {
+      const categories = await prisma.product.delete({
+        where: { id: productId },
+      })
+      console.log("__dirname:", __dirname)
+      const filePath = path.join(
+        process.cwd(),
+        "storage/images",
+        `${productId}.WebP`,
+      )
+      if (fs.existsSync(filePath)) {
+        fs.unlinkSync(filePath)
+        console.log("File deleted successfully.")
+      } else {
+        console.log("File does not exist.")
+      }
+
+      revalidatePath("/dashboard/products")
     } else {
       console.error("Invalid category ID. Could not convert to a number.")
     }
