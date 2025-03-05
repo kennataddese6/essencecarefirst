@@ -1,5 +1,4 @@
-"use client"
-
+import { prisma } from "@/app/lib/prisma"
 import ProductCard from "@/app/ui/products-card"
 import { Checkbox } from "@/components/ui/checkbox"
 import {
@@ -12,36 +11,10 @@ import {
 } from "@/components/ui/sheet"
 import { FaFilter } from "react-icons/fa6"
 
-const Products = () => {
-  const products = [
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product1.png",
-    },
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product2.png",
-    },
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product3.png",
-    },
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product4.png",
-    },
-  ]
-  const categories = [
-    { name: "Diagnostic " },
-    { name: "Therapeutic" },
-    { name: "Surgical" },
-    { name: "Monitoring" },
-    { name: "Assistive" },
-  ]
+const Products = async () => {
+  const products = await prisma.product.findMany()
+  const categories = await prisma.category.findMany()
+
   return (
     <div className="mt-20 md:mt-32  md:mx-20 md:flex flex-wrap justify-center md:justify-between items-start">
       <Sheet>
@@ -89,10 +62,8 @@ const Products = () => {
             {products.map((product, index) => (
               <ProductCard
                 key={index}
-                id={`${index}`}
-                name={`${product.title}`}
-                price={500}
                 {...product}
+                image={`http://localhost:3000/image/${product.id}`}
               />
             ))}
           </div>

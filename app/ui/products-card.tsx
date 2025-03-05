@@ -3,7 +3,7 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import Image from "next/image"
 
 interface ProductCardProps {
-  id: string
+  id: number
   name: string
   description: string
   price: number
