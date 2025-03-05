@@ -1,6 +1,8 @@
+import { prisma } from "@/app/lib/prisma"
 import Link from "next/link"
 
-export default function Page() {
+export default async function Page() {
+  const categories = await prisma.category.findMany()
   return (
     <div className="mx-8 w-full mt-16">
       <Link href={"/dashboard/categories/create"}>
@@ -19,50 +21,19 @@ export default function Page() {
           </tr>
         </thead>
         <tbody>
-          <tr className="hover:bg-gray-50">
-            <td className="border border-gray-300 px-4 py-2">
-              Alfreds Futterkiste
-            </td>
-            <td className="border border-gray-300 px-4 py-2">Maria Anders</td>
-            <td className="border border-gray-300 px-4 py-2">Germany</td>
-          </tr>
-          <tr className="hover:bg-gray-50">
-            <td className="border border-gray-300 px-4 py-2">
-              Centro comercial Moctezuma
-            </td>
-            <td className="border border-gray-300 px-4 py-2">
-              Francisco Chang
-            </td>
-            <td className="border border-gray-300 px-4 py-2">Mexico</td>
-          </tr>
-          <tr className="hover:bg-gray-50">
-            <td className="border border-gray-300 px-4 py-2">Ernst Handel</td>
-            <td className="border border-gray-300 px-4 py-2">Roland Mendel</td>
-            <td className="border border-gray-300 px-4 py-2">Austria</td>
-          </tr>
-          <tr className="hover:bg-gray-50">
-            <td className="border border-gray-300 px-4 py-2">Island Trading</td>
-            <td className="border border-gray-300 px-4 py-2">Helen Bennett</td>
-            <td className="border border-gray-300 px-4 py-2">UK</td>
-          </tr>
-          <tr className="hover:bg-gray-50">
-            <td className="border border-gray-300 px-4 py-2">
-              Laughing Bacchus Winecellars
-            </td>
-            <td className="border border-gray-300 px-4 py-2">
-              Yoshi Tannamuri
-            </td>
-            <td className="border border-gray-300 px-4 py-2">Canada</td>
-          </tr>
-          <tr className="hover:bg-gray-50">
-            <td className="border border-gray-300 px-4 py-2">
-              Magazzini Alimentari Riuniti
-            </td>
-            <td className="border border-gray-300 px-4 py-2">
-              Giovanni Rovelli
-            </td>
-            <td className="border border-gray-300 px-4 py-2">Italy</td>
-          </tr>
+          {categories.map((category, index) => (
+            <tr className="hover:bg-gray-50" key={index}>
+              <td className="border border-gray-300 px-4 py-2">
+                {category.name}
+              </td>
+              <td className="border border-gray-300 px-4 py-2">
+                {category.description}
+              </td>
+              <td className="border border-gray-300 px-4 py-2">
+                {category.id}
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>

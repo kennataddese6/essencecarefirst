@@ -7,7 +7,7 @@ export const createCategory = async (prevState: any, formData: FormData) => {
     await prisma.category.create({
       data: {
         name: formData.get("name") as string,
-        description: "Great Product",
+        description: formData.get("description") as string,
       },
     })
     return { success: true, error: false, errorMessage: "" }
