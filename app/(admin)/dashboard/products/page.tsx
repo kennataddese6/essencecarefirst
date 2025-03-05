@@ -1,20 +1,44 @@
+"use client"
+import { createProduct } from "@/app/action/action"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import { useRouter } from "next/navigation"
+import { useActionState, useEffect } from "react"
+import { toast } from "sonner"
 const Page = () => {
+  const router = useRouter()
+  const initialState = {
+    success: false,
+    error: false,
+    errorMessage: "",
+  }
+  const [state, formAction, isPending] = useActionState(
+    createProduct,
+    initialState,
+  )
+  useEffect(() => {
+    if (state.success) {
+      router.push("/dashboard/products")
+      toast.success("created")
+    } else if (state.error) {
+      toast.error(state.errorMessage)
+    }
+  }, [state])
   return (
     <div className="w-full h-screen  flex items-center">
       <div className="max-w-md w-full mx-auto rounded-none md:rounded-2xl p-4  md:p-8 shadow-input bg-white ">
         <h2 className="font-bold text-3xl text-neutral-800  text-center">
           Add product
         </h2>
-        <form className="my-8">
+        <form className="my-8" action={formAction}>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="name">Product Name</Label>
             <Input
               id="name"
               placeholder="Enter Product Name"
               type="text"
+              name="name"
               required
             />
           </LabelInputContainer>
@@ -25,6 +49,7 @@ const Page = () => {
               placeholder="Enter Product Name"
               type="text"
               required
+              name="category"
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
@@ -34,6 +59,7 @@ const Page = () => {
               placeholder="Enter Product Description"
               type="text"
               required
+              name="description"
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
@@ -43,16 +69,12 @@ const Page = () => {
               placeholder="Enter Product Description"
               type="number"
               required
+              name="price"
             />
           </LabelInputContainer>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="price">Product Image</Label>
-            <Input
-              id="price"
-              placeholder="Enter Product Description"
-              type="file"
-              required
-            />
+            <Input id="price" type="file" required name="image" />
           </LabelInputContainer>
 
           <button

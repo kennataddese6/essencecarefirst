@@ -1,5 +1,6 @@
 "use server"
 
+import { saveImage } from "@/lib/save-file"
 import { revalidatePath } from "next/cache"
 import { prisma } from "../lib/prisma"
 
@@ -18,6 +19,32 @@ export const createCategory = async (prevState: any, formData: FormData) => {
         success: false,
         error: true,
         errorMessage: "Error. Category already added",
+      }
+    }
+    return { success: false, error: true, errorMessage: error.message }
+  }
+}
+export const createProduct = async (prevState: any, formData: FormData) => {
+  console.log("1")
+  try {
+    const newProduct = await prisma.product.create({
+      data: {
+        name: formData.get("name") as string,
+        description: formData.get("description") as string,
+        price: Number(formData.get("price") as string),
+        category: formData.get("category") as string,
+      },
+    })
+    console.log("2")
+    await saveImage(formData, newProduct.id.toString())
+    console.log("3")
+    return { success: true, error: false, errorMessage: "" }
+  } catch (error: any) {
+    if (error.code == "P2002") {
+      return {
+        success: false,
+        error: true,
+        errorMessage: "Error. Product already added",
       }
     }
     return { success: false, error: true, errorMessage: error.message }

@@ -31,6 +31,6 @@ model Product {
   name      String  @unique
   description     String  
   category String
-  Price Int
+  price Int
   createdAt DateTime @default(now())
 }
