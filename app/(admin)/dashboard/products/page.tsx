@@ -22,6 +22,10 @@ export default async function Page() {
             <th className="border border-gray-300 px-4 py-2">
               Product Description
             </th>
+            <th className="border border-gray-300 px-4 py-2">
+              {" "}
+              Product Category
+            </th>
             <th className="border border-gray-300 px-4 py-2"> Product Price</th>
             <th className="border border-gray-300 px-4 py-2"> Product Image</th>
             <th className="border border-gray-300 px-4 py-2"> Remove</th>
@@ -37,6 +41,9 @@ export default async function Page() {
               </td>
               <td className="border border-gray-300 px-4 py-2">
                 {product.description}
+              </td>
+              <td className="border border-gray-300 px-4 py-2">
+                {product.category}
               </td>
               <td className="border border-gray-300 px-4 py-2">
                 {product.price} ETB

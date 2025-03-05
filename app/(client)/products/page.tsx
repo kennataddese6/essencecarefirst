@@ -12,7 +12,19 @@ import {
 import { FaFilter } from "react-icons/fa6"
 
 const Products = async () => {
-  const products = await prisma.product.findMany()
+  const categoriesToFilter: string[] = []
+
+  const products = await prisma.product.findMany({
+    where:
+      categoriesToFilter.length > 0
+        ? {
+            category: {
+              in: categoriesToFilter,
+            },
+          }
+        : {},
+  })
+
   const categories = await prisma.category.findMany()
 
   return (

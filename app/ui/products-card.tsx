@@ -11,7 +11,7 @@ interface ProductCardProps {
 }
 
 export default function ProductCard({
-  id = "1",
+  id = 1,
   name = "Premium Headphones",
   description,
   price = 149.99,
