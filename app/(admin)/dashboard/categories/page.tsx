@@ -10,6 +10,7 @@ const Page = () => {
   const initialState = {
     success: false,
     error: false,
+    errorMessage: "",
   }
   const [state, formAction, isPending] = useActionState(
     createCategory,
@@ -19,7 +20,7 @@ const Page = () => {
     if (state.success) {
       toast.success("created")
     } else if (state.error) {
-      toast.success("error")
+      toast.error(state.errorMessage)
     }
   }, [state])
   return (
@@ -54,7 +55,7 @@ const Page = () => {
             className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
             type="submit"
           >
-            Add Category &rarr;
+            {isPending ? "Adding Category " : "Add Category "}
             <BottomGradient />
           </button>
         </form>

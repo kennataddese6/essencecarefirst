@@ -10,9 +10,15 @@ export const createCategory = async (prevState: any, formData: FormData) => {
         description: "Great Product",
       },
     })
-    return { success: true, error: false }
+    return { success: true, error: false, errorMessage: "" }
   } catch (error: any) {
-    console.log(error.message)
-    return { success: false, error: true }
+    if (error.code == "P2002") {
+      return {
+        success: false,
+        error: true,
+        errorMessage: "Error. Category already added",
+      }
+    }
+    return { success: false, error: true, errorMessage: error.message }
   }
 }
