@@ -3,8 +3,10 @@ import { createProduct } from "@/app/action/action"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useActionState, useEffect } from "react"
+import { FaArrowLeft } from "react-icons/fa"
 import { toast } from "sonner"
 const Page = () => {
   const router = useRouter()
@@ -85,6 +87,10 @@ const Page = () => {
             <BottomGradient />
           </button>
         </form>
+        <Link href={"/dashboard/products"} className="text-blacck">
+          <FaArrowLeft className="inline mx-2" />
+          back
+        </Link>
       </div>
     </div>
   )
