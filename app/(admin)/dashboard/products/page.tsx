@@ -17,11 +17,12 @@ export default async function Page() {
       <table className="table-auto border-collapse border border-gray-300 w-full text-left">
         <thead>
           <tr className="bg-neutral-400">
+            <th className="border border-gray-300 px-4 py-2"> Product ID</th>
             <th className="border border-gray-300 px-4 py-2">Product Name</th>
             <th className="border border-gray-300 px-4 py-2">
               Product Description
             </th>
-            <th className="border border-gray-300 px-4 py-2"> Product ID</th>
+            <th className="border border-gray-300 px-4 py-2"> Product Price</th>
             <th className="border border-gray-300 px-4 py-2"> Product Image</th>
             <th className="border border-gray-300 px-4 py-2"> Remove</th>
           </tr>
@@ -29,13 +30,17 @@ export default async function Page() {
         <tbody>
           {products.map((product, index) => (
             <tr className="hover:bg-gray-50" key={index}>
+              <td className="border border-gray-300 px-4 py-2">{product.id}</td>
+
               <td className="border border-gray-300 px-4 py-2">
                 {product.name}
               </td>
               <td className="border border-gray-300 px-4 py-2">
                 {product.description}
               </td>
-              <td className="border border-gray-300 px-4 py-2">{product.id}</td>
+              <td className="border border-gray-300 px-4 py-2">
+                {product.price} ETB
+              </td>
               <td className="border border-gray-300 px-4 py-2">
                 <Image
                   src={`http://localhost:3000/image/${product.id}`}
