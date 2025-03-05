@@ -18,7 +18,7 @@ const Page = () => {
   useEffect(() => {
     if (state.success) {
       toast.success("created")
-    } else {
+    } else if (state.error) {
       toast.success("error")
     }
   }, [state])
