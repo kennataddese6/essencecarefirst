@@ -62,7 +62,7 @@ export const CreateProductForm = ({
               required
               name="category"
             /> */}
-            <Select>
+            <Select name="category" required>
               <option value={""}>Select Category</option>
               {categores.map((category) => (
                 <option key={category.id} value={category.name}>
