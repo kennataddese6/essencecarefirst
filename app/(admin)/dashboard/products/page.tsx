@@ -1,5 +1,6 @@
 import { deleteProduct } from "@/app/action/action"
 import { prisma } from "@/app/lib/prisma"
+import Image from "next/image"
 import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
 
@@ -21,6 +22,7 @@ export default async function Page() {
               Product Description
             </th>
             <th className="border border-gray-300 px-4 py-2"> Product ID</th>
+            <th className="border border-gray-300 px-4 py-2"> Product Image</th>
             <th className="border border-gray-300 px-4 py-2"> Remove</th>
           </tr>
         </thead>
@@ -34,6 +36,15 @@ export default async function Page() {
                 {product.description}
               </td>
               <td className="border border-gray-300 px-4 py-2">{product.id}</td>
+              <td className="border border-gray-300 px-4 py-2">
+                <Image
+                  src={`http://localhost:3000/image/${product.id}`}
+                  width={50}
+                  height={50}
+                  alt={product.name}
+                  className="border-2 border-neutral-300 rounded-md"
+                />
+              </td>
               <td className="border border-gray-300 px-4 py-2">
                 <form action={deleteProduct}>
                   <input

@@ -1,11 +1,10 @@
 import fs from "fs"
 import path from "path"
 export async function GET(
-  req: any,
-  res: any,
-  { params }: { params: { id: string } },
+  request: Request,
+  { params }: { params: Promise<{ id: string }> },
 ) {
-  const { id } = params
+  const { id } = await params
   try {
     const imagePath = path.join(process.cwd(), `storage/images/${id}.WebP`)
     const imageBuffer = fs.readFileSync(imagePath)
