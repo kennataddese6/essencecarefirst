@@ -3,10 +3,12 @@ import { createCategory } from "@/app/action/action"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import { useRouter } from "next/navigation"
 import { useActionState, useEffect } from "react"
 import { toast } from "sonner"
 
 const Page = () => {
+  const router = useRouter()
   const initialState = {
     success: false,
     error: false,
@@ -18,6 +20,7 @@ const Page = () => {
   )
   useEffect(() => {
     if (state.success) {
+      router.push("/dashboard/categories")
       toast.success("created")
     } else if (state.error) {
       toast.error(state.errorMessage)
