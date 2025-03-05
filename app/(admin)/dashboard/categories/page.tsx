@@ -1,8 +1,11 @@
+import { deleteCategory } from "@/app/action/action"
 import { prisma } from "@/app/lib/prisma"
 import Link from "next/link"
+import { FaTrashAlt } from "react-icons/fa"
 
 export default async function Page() {
   const categories = await prisma.category.findMany()
+
   return (
     <div className="mx-8 w-full mt-16">
       <Link href={"/dashboard/categories/create"}>
@@ -18,6 +21,7 @@ export default async function Page() {
               Category Description
             </th>
             <th className="border border-gray-300 px-4 py-2"> Category ID</th>
+            <th className="border border-gray-300 px-4 py-2"> Remove</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +35,19 @@ export default async function Page() {
               </td>
               <td className="border border-gray-300 px-4 py-2">
                 {category.id}
+              </td>
+              <td className="border border-gray-300 px-4 py-2">
+                <form action={deleteCategory}>
+                  <input
+                    defaultValue={category.id}
+                    name="categoryid"
+                    className="hidden"
+                    type="number"
+                  ></input>
+                  <button type="submit">
+                    <FaTrashAlt />
+                  </button>
+                </form>
               </td>
             </tr>
           ))}

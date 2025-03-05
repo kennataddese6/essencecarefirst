@@ -1,5 +1,6 @@
 "use server"
 
+import { revalidatePath } from "next/cache"
 import { prisma } from "../lib/prisma"
 
 export const createCategory = async (prevState: any, formData: FormData) => {
@@ -20,5 +21,23 @@ export const createCategory = async (prevState: any, formData: FormData) => {
       }
     }
     return { success: false, error: true, errorMessage: error.message }
+  }
+}
+
+export const deleteCategory = async (formData: FormData) => {
+  const categoryIdString = formData.get("categoryid") as string | null
+  if (categoryIdString !== null) {
+    const categoryId = parseInt(categoryIdString, 10)
+    if (!isNaN(categoryId)) {
+      const categories = await prisma.category.delete({
+        where: { id: categoryId },
+      })
+      console.log(categories)
+      revalidatePath("/dashboard/categories")
+    } else {
+      console.error("Invalid category ID. Could not convert to a number.")
+    }
+  } else {
+    console.error("Category ID is null.")
   }
 }

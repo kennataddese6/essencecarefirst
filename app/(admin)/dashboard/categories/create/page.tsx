@@ -3,8 +3,10 @@ import { createCategory } from "@/app/action/action"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import { useActionState, useEffect } from "react"
+import { FaArrowLeft } from "react-icons/fa6"
 import { toast } from "sonner"
 
 const Page = () => {
@@ -53,7 +55,6 @@ const Page = () => {
               required
             />
           </LabelInputContainer>
-
           <button
             className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
             type="submit"
@@ -61,7 +62,11 @@ const Page = () => {
             {isPending ? "Adding Category " : "Add Category "}
             <BottomGradient />
           </button>
-        </form>
+        </form>{" "}
+        <Link href={"/dashboard/categories"} className="text-blacck">
+          <FaArrowLeft className="inline mx-2" />
+          back
+        </Link>
       </div>
     </div>
   )
