@@ -126,3 +126,19 @@ export const deleteProduct = async (formData: FormData) => {
     console.error("Category ID is null.")
   }
 }
+export const deleteUser = async (formData: FormData) => {
+  const userIdString = formData.get("userId") as string | null
+  if (userIdString !== null) {
+    const userId = parseInt(userIdString, 10)
+    if (!isNaN(userId)) {
+      const categories = await prisma.user.delete({
+        where: { id: userId },
+      })
+      revalidatePath("/dashboard/users")
+    } else {
+      console.error("Invalid category ID. Could not convert to a number.")
+    }
+  } else {
+    console.error("Category ID is null.")
+  }
+}
