@@ -1,10 +1,38 @@
 "use server"
 import { saveImage } from "@/lib/save-file"
+import bcrypt from "bcryptjs"
 import fs from "fs"
 import { revalidatePath } from "next/cache"
 import path from "path"
 import { prisma } from "../lib/prisma"
 
+export const createUser = async (prevState: any, formData: FormData) => {
+  const salt = await bcrypt.genSalt(10)
+  const hashedPassword = await bcrypt.hash(
+    formData.get("password") as string,
+    salt,
+  )
+  try {
+    await prisma.user.create({
+      data: {
+        name: formData.get("name") as string,
+        email: formData.get("email") as string,
+        password: hashedPassword,
+      },
+    })
+    return { success: true, error: false, errorMessage: "" }
+  } catch (error: any) {
+    if (error.code == "P2002") {
+      return {
+        success: false,
+        error: true,
+        errorMessage: "Error. User already added",
+      }
+    }
+    console.log(error.message)
+    return { success: false, error: true, errorMessage: error.message }
+  }
+}
 export const createCategory = async (prevState: any, formData: FormData) => {
   try {
     await prisma.category.create({
