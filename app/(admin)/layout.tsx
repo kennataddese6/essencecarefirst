@@ -63,7 +63,7 @@ export default function DashboardLayout({
               <div>
                 <SidebarLink
                   link={{
-                    label: "Kenna Taddese",
+                    label: "Admin",
                     href: "#",
                     icon: (
                       <Image
