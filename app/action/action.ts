@@ -2,10 +2,38 @@
 import { saveImage } from "@/lib/save-file"
 import bcrypt from "bcryptjs"
 import fs from "fs"
+import jwt from "jsonwebtoken"
 import { revalidatePath } from "next/cache"
+import { cookies } from "next/headers"
 import path from "path"
 import { prisma } from "../lib/prisma"
 
+export const login = async (prevState: any, formData: FormData) => {
+  const email = formData.get("email") as string
+  const user = await prisma.user.findUnique({ where: { email: email } })
+  if (user) {
+    const password = formData.get("password") as string
+    const isPasswordValid = await bcrypt.compare(password, user.password)
+    if (isPasswordValid) {
+      const token = jwt.sign(
+        { id: user.id, email: user.email },
+        process.env.JWT_SECRET as string,
+        { expiresIn: "1h" },
+      )
+      const cookieStore = await cookies()
+      cookieStore.set("aji", token)
+      return { success: true, error: false, errorMessage: "" }
+    } else {
+      return {
+        success: false,
+        error: true,
+        errorMessage: "Invalid credentials",
+      }
+    }
+  } else {
+    return { success: false, error: true, errorMessage: "Invalid credentials" }
+  }
+}
 export const createUser = async (prevState: any, formData: FormData) => {
   const salt = await bcrypt.genSalt(10)
   const hashedPassword = await bcrypt.hash(

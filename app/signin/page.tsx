@@ -3,11 +3,25 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
 import { useRouter } from "next/navigation"
-import React from "react"
+import React, { useActionState, useEffect } from "react"
+import { toast } from "sonner"
+import { login } from "../action/action"
 
 export default function SignupFormDemo() {
   const router = useRouter()
-
+  const initialState = {
+    success: false,
+    error: false,
+    errorMessage: "",
+  }
+  const [state, formAction, isPending] = useActionState(login, initialState)
+  useEffect(() => {
+    if (state.success) {
+      router.push("/dashboard")
+    } else if (state.error) {
+      toast.error(state.errorMessage)
+    }
+  }, [state])
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     console.log("Form submitted")
@@ -18,12 +32,13 @@ export default function SignupFormDemo() {
         <h2 className="font-bold text-3xl text-neutral-800  text-center">
           Welcome to admin
         </h2>
-        <form className="my-8" onSubmit={handleSubmit}>
+        <form className="my-8" action={formAction}>
           <LabelInputContainer className="mb-4">
             <Label htmlFor="email">Email Address</Label>
             <Input
               id="email"
               placeholder="Enter email or user Id"
+              name="email"
               type="email"
               required
             />
@@ -32,6 +47,7 @@ export default function SignupFormDemo() {
             <Label htmlFor="password">Password</Label>
             <Input
               id="password"
+              name="password"
               placeholder="••••••••"
               type="password"
               required
@@ -41,7 +57,6 @@ export default function SignupFormDemo() {
           <button
             className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
             type="submit"
-            onClick={() => router.push("/dashboard")}
           >
             Sign In &rarr;
             <BottomGradient />
