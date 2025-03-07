@@ -1,5 +1,4 @@
 import {
-  IconArrowLeft,
   IconCube,
   IconDashboard,
   IconList,
@@ -28,7 +27,8 @@ const SidebarLinks = () => {
       icon: (
         <IconList
           className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/dashboard/categories"
+            pathname === "/dashboard/categories" ||
+            pathname === "/dashboard/categories/create"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}
@@ -41,7 +41,8 @@ const SidebarLinks = () => {
       icon: (
         <IconCube
           className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/dashboard/products"
+            pathname === "/dashboard/products" ||
+            pathname === "/dashboard/products/create"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}
@@ -55,20 +56,6 @@ const SidebarLinks = () => {
         <IconUser
           className={`h-5 w-5 flex-shrink-0 ${
             pathname === "/dashboard/users"
-              ? "text-blue-700 dark:text-blue-700"
-              : "text-neutral-700 dark:text-neutral-200"
-          }`}
-        />
-      ),
-    },
-
-    {
-      label: "Logout",
-      href: "/",
-      icon: (
-        <IconArrowLeft
-          className={`h-5 w-5 flex-shrink-0 ${
-            pathname === "/"
               ? "text-blue-700 dark:text-blue-700"
               : "text-neutral-700 dark:text-neutral-200"
           }`}

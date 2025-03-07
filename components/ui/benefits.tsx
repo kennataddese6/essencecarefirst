@@ -2,6 +2,7 @@
 import { inter } from "@/lib/font"
 import { motion } from "motion/react"
 import { AiOutlineMedicineBox } from "react-icons/ai"
+import { BsFileEarmarkMedical } from "react-icons/bs"
 import { FaUserDoctor } from "react-icons/fa6"
 import { GiHealthPotion } from "react-icons/gi"
 const Benefits = () => {
@@ -46,7 +47,7 @@ const Benefits = () => {
             Assure quality
           </h2>
           <p className="text-[#5B5B5B] text-center">
-            Our Products are very high quality <br /> and durable
+            Designed with precision just for your needs.
           </p>
         </motion.div>
         <motion.div
@@ -63,7 +64,7 @@ const Benefits = () => {
             Assure quality
           </h2>
           <p className="text-[#5B5B5B] text-center">
-            Our Products are very high quality <br /> and durable
+            Premium quality you can always rely on
           </p>
         </motion.div>
         <motion.div
@@ -72,7 +73,7 @@ const Benefits = () => {
           whileInView={{ translateY: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring", delay: 0.8 }}
         >
-          <AiOutlineMedicineBox
+          <BsFileEarmarkMedical
             fontSize={72}
             className="text-[#17323D] block mx-auto"
           />
@@ -80,7 +81,7 @@ const Benefits = () => {
             Assure quality
           </h2>
           <p className="text-[#5B5B5B] text-center">
-            Our Products are very high quality <br /> and durable
+            Engineered for excellence, built to last.
           </p>
         </motion.div>
       </div>

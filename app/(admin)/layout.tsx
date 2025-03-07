@@ -2,10 +2,12 @@
 import { Sidebar, SidebarBody, SidebarLink } from "@/components/ui/sidebar"
 import SidebarLinks from "@/components/ui/sidebar-links"
 import { cn } from "@/lib/utils"
+import { IconArrowLeft } from "@tabler/icons-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
 import Link from "next/link"
 import React, { useState } from "react"
+import { logout } from "../action/action"
 
 export default function DashboardLayout({
   children,
@@ -60,10 +62,14 @@ export default function DashboardLayout({
                   ))}
                 </div>
               </div>
+              <IconArrowLeft
+                className="text-white inline cursor-pointer"
+                onClick={() => logout()}
+              />
               <div>
                 <SidebarLink
                   link={{
-                    label: "Kenna Taddese",
+                    label: "Admin",
                     href: "#",
                     icon: (
                       <Image

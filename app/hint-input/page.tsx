@@ -11,12 +11,9 @@ export default function PlaceholdersAndVanishInputDemo() {
     "How to assemble your own PC?",
   ]
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value)
-  }
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {}
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log("submitted")
   }
   return (
     <div className="bg-black w-full h-full flex items-center justify-center">

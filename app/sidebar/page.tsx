@@ -58,7 +58,7 @@ export default function SidebarDemo() {
             <div>
               <SidebarLink
                 link={{
-                  label: "Kenna Taddese",
+                  label: "Admin",
                   href: "#",
                   icon: (
                     <Image

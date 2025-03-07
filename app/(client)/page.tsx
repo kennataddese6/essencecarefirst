@@ -1,5 +1,5 @@
 import Benefits from "@/components/ui/benefits"
-import Featured from "@/components/ui/featured"
+import FeaturedProducts from "@/components/ui/featured-products"
 import Hero from "@/components/ui/hero"
 import Lead from "@/components/ui/lead"
 import Location from "@/components/ui/location"
@@ -10,7 +10,7 @@ export default function Page() {
     <>
       <Hero />
       <Benefits />
-      <Featured />
+      <FeaturedProducts />
       <Lead />
       <Misson />
       <Location />

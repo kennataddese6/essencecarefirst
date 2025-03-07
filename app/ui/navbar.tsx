@@ -72,7 +72,8 @@ export default function Navbar() {
         <Link href={"/products"} className="no-underline">
           <li
             className={`text-[#17323D]   py-4 md:py-0   md:border-none cursor-pointer ${
-              pathname === "/products" && "font-extrabold animate-fadein"
+              (pathname === "/products" || pathname.includes("/products")) &&
+              "font-extrabold animate-fadein"
             }`}
           >
             Products

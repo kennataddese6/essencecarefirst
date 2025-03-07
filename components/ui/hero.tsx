@@ -1,4 +1,5 @@
 import { inter } from "@/lib/font"
+import Link from "next/link"
 import { TextGenerateEffect } from "./text-generate-effect"
 const words = [
   {
@@ -30,9 +31,11 @@ export default function Hero() {
           We are dedicated to enhancing healthcare by providing top-tier medical
           equipment from around the globe to Ethiopia.
         </p>
-        <button className="px-8 py-2 my-3 bg-[#17323D] text-white rounded-sm block mx-auto md:mx-0">
-          Shop Now
-        </button>
+        <Link href="/products" className="no-underline">
+          <button className="px-8 py-2 my-3 bg-[#17323D] text-white rounded-sm block mx-auto md:mx-0">
+            Shop Now
+          </button>
+        </Link>
       </div>
       <div className="w-full md:w-1/2"></div>
     </div>
