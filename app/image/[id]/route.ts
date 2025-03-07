@@ -6,7 +6,8 @@ export async function GET(
 ) {
   const { id } = await params
   try {
-    const imagePath = path.join(process.cwd(), `storage/images/${id}.WebP`)
+    const imageDir = path.join("/tmp", "storage/images")
+    const imagePath = path.join(imageDir, `/${id}.WebP`)
     const imageBuffer = fs.readFileSync(imagePath)
     return new Response(imageBuffer, {
       headers: {
