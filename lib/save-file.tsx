@@ -13,7 +13,6 @@ export async function saveImage(formData: FormData, imageName: string) {
   return new Promise((resolve, reject) => {
     fs.writeFile(imagePath, buffer, (err) => {
       if (err) {
-        console.error("Error writing the file:", err)
         reject(err)
       } else {
         resolve(image.name)

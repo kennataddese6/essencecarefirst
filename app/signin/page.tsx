@@ -26,7 +26,6 @@ export default function SignupFormDemo() {
   }, [state])
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log("Form submitted")
   }
   return (
     <div className="w-full h-screen  flex items-center">

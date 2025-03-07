@@ -63,7 +63,6 @@ export const createUser = async (prevState: any, formData: FormData) => {
         errorMessage: "Error. User already added",
       }
     }
-    console.log(error.message)
     return { success: false, error: true, errorMessage: error.message }
   }
 }
@@ -88,7 +87,6 @@ export const createCategory = async (prevState: any, formData: FormData) => {
   }
 }
 export const createProduct = async (prevState: any, formData: FormData) => {
-  console.log("1")
   try {
     const newProduct = await prisma.product.create({
       data: {
@@ -98,9 +96,7 @@ export const createProduct = async (prevState: any, formData: FormData) => {
         category: formData.get("category") as string,
       },
     })
-    console.log("2")
     await saveImage(formData, newProduct.id.toString())
-    console.log("3")
     return { success: true, error: false, errorMessage: "" }
   } catch (error: any) {
     if (error.code == "P2002") {
@@ -122,13 +118,10 @@ export const deleteCategory = async (formData: FormData) => {
       const categories = await prisma.category.delete({
         where: { id: categoryId },
       })
-      console.log(categories)
       revalidatePath("/dashboard/categories")
     } else {
-      console.error("Invalid category ID. Could not convert to a number.")
     }
   } else {
-    console.error("Category ID is null.")
   }
 }
 export const deleteProduct = async (formData: FormData) => {
@@ -139,7 +132,6 @@ export const deleteProduct = async (formData: FormData) => {
       const categories = await prisma.product.delete({
         where: { id: productId },
       })
-      console.log("__dirname:", __dirname)
       const filePath = path.join(
         process.cwd(),
         "storage/images",
@@ -147,17 +139,13 @@ export const deleteProduct = async (formData: FormData) => {
       )
       if (fs.existsSync(filePath)) {
         fs.unlinkSync(filePath)
-        console.log("File deleted successfully.")
       } else {
-        console.log("File does not exist.")
       }
 
       revalidatePath("/dashboard/products")
     } else {
-      console.error("Invalid category ID. Could not convert to a number.")
     }
   } else {
-    console.error("Category ID is null.")
   }
 }
 export const deleteUser = async (formData: FormData) => {
@@ -170,9 +158,7 @@ export const deleteUser = async (formData: FormData) => {
       })
       revalidatePath("/dashboard/users")
     } else {
-      console.error("Invalid category ID. Could not convert to a number.")
     }
   } else {
-    console.error("Category ID is null.")
   }
 }
