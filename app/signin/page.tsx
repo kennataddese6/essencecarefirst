@@ -2,8 +2,10 @@
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { cn } from "@/lib/utils"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
 import React, { useActionState, useEffect } from "react"
+import { FaArrowLeft } from "react-icons/fa"
 import { toast } from "sonner"
 import { login } from "../action/action"
 
@@ -62,6 +64,10 @@ export default function SignupFormDemo() {
             <BottomGradient />
           </button>
         </form>
+        <Link href={"/"} className="text-blacck">
+          <FaArrowLeft className="inline mx-2" />
+          Home
+        </Link>
       </div>
     </div>
   )
