@@ -4,35 +4,17 @@ import { motion } from "framer-motion"
 import Image from "next/image"
 import { useState } from "react"
 
-const Featured = () => {
+const Featured = ({
+  products,
+}: {
+  products: { name: string; id: number; price: number; description: number }[]
+}) => {
   const [hovering0, setHovering0] = useState(false)
   const [hovering1, setHovering1] = useState(false)
   const [hovering2, setHovering2] = useState(false)
   const [hovering3, setHovering3] = useState(false)
   const [hoveredIndex, setHoveredIndex] = useState(null)
 
-  const products = [
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product1.png",
-    },
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product2.png",
-    },
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product3.png",
-    },
-    {
-      title: "MRI Scanner",
-      description: "Our products are high quality and durable",
-      image: "/product4.png",
-    },
-  ]
   return (
     <div className="mt-12">
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
@@ -81,7 +63,7 @@ const Featured = () => {
                 index={index}
               >
                 <Image
-                  src={product.image}
+                  src={`http://localhost:3000/image/${product.id}`}
                   alt="image"
                   width={500}
                   height={500}
@@ -95,9 +77,9 @@ const Featured = () => {
                 className="py-4 relative z-20"
               >
                 <h2 className="text-white text-2xl text-left font-bold">
-                  {product.title}
+                  {product.name}
                 </h2>
-                <p className="text-neutral-200 text-left  mt-4">
+                <p className="text-neutral-200 text-left  mt-4 line-clamp-2">
                   {product.description}
                 </p>
               </motion.div>
