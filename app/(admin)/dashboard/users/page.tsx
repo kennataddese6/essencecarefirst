@@ -25,7 +25,6 @@ export default async function Page() {
           {users.map((user: any, index: any) => (
             <tr className="hover:bg-gray-50" key={index}>
               <td className="border border-gray-300 px-4 py-2">{user.id}</td>
-
               <td className="border border-gray-300 px-4 py-2">{user.name}</td>
               <td className="border border-gray-300 px-4 py-2">{user.email}</td>
 
