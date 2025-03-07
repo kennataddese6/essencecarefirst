@@ -73,7 +73,7 @@ const Page = () => {
             <BottomGradient />
           </button>
         </form>
-        <Link href={"/dashboard/products"} className="text-blacck">
+        <Link href={"/dashboard/users"} className="text-blacck">
           <FaArrowLeft className="inline mx-2" />
           back
         </Link>
