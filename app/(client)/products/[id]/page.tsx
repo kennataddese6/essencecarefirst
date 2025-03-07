@@ -6,7 +6,6 @@ const page = async ({ params }: any) => {
   const product = await prisma.product.findUnique({
     where: { id: Number(param.id) },
   })
-  console.log(product)
   return <ProductUI product={product} />
 }
 

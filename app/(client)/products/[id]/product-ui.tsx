@@ -20,7 +20,7 @@ const ProductUI = ({
   const [hoveredIndex, setHoveredIndex] = useState(null)
   return (
     <div className="mt-20 md:mt-32  md:mx-20   grid grid-cols-1 md:grid-cols-2 gap-12">
-      <div className="bg-green-400">
+      <div>
         {/* <Rays /> */}
         <div className="relative z-10">
           <Lens
