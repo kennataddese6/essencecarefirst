@@ -6,7 +6,7 @@ export default async function middleware(req: NextRequest) {
   const currentPath = req.nextUrl.pathname
   if (currentPath.includes(protectedRoutes)) {
     try {
-      const res = await fetch("http://localhost:3000/verify-session", {
+      const res = await fetch(`${process.env.API_URL}/verify-session`, {
         headers: header,
       })
       if (!res.ok) {
