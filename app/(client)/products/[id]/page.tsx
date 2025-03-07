@@ -1,9 +1,11 @@
 import { prisma } from "@/app/lib/prisma"
 import ProductUI from "./product-ui"
 
-const page = async () => {
-  const id = 19
-  const product = await prisma.product.findUnique({ where: { id: id } })
+const page = async ({ params }: any) => {
+  const param = await params
+  const product = await prisma.product.findUnique({
+    where: { id: Number(param.id) },
+  })
   console.log(product)
   return <ProductUI product={product} />
 }

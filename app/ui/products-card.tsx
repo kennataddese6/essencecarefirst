@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import Image from "next/image"
+import Link from "next/link"
 
 interface ProductCardProps {
   id: number
@@ -37,7 +38,9 @@ export default function ProductCard({
       </CardContent>
       <CardFooter className="p-4 pt-0 flex items-center justify-between">
         <p className="font-bold text-lg">ETB {price.toFixed(2)}</p>
-        <Button size="sm">View</Button>
+        <Link href={`http://localhost:3000/products/${id}`}>
+          <Button size="sm">View</Button>
+        </Link>
       </CardFooter>
     </Card>
   )
