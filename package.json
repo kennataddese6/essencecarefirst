@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "npx prisma migrate resolve --applied 20230201_initial_migration && npx prisma generate && next build && npx prisma generate && next build",
+    "build": "npx prisma migrate resolve --applied 20250306180157_pass && npx prisma generate && next build && npx prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
   },
