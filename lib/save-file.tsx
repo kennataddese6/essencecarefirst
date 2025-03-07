@@ -3,7 +3,7 @@ import path from "path"
 
 export async function saveImage(formData: FormData, imageName: string) {
   const image: any = formData.get("image")
-  const imageDir = path.join(process.cwd(), "storage/images")
+  const imageDir = path.join(process.cwd(), "tmp/storage/images")
   const imagePath = path.join(imageDir, imageName + ".webp")
   const buffer = Buffer.from(await image.arrayBuffer())
 
