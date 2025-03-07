@@ -25,7 +25,7 @@ export default async function Page() {
           </tr>
         </thead>
         <tbody>
-          {categories.map((category, index) => (
+          {categories.map((category: any, index: any) => (
             <tr className="hover:bg-gray-50" key={index}>
               <td className="border border-gray-300 px-4 py-2">
                 {category.name}
