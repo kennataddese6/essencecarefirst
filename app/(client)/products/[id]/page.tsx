@@ -6,10 +6,11 @@ export async function generateMetadata({ params }: any) {
   const product = await prisma.product.findUnique({
     where: { id: productId },
   })
-
-  return {
-    title: `${product.name} - Essence care first`,
-    description: `${product.description.slice(0, 160)}...`,
+  if (product) {
+    return {
+      title: `${product.name} - Essence care first`,
+      description: `${product.description.slice(0, 160)}...`,
+    }
   }
 }
 
