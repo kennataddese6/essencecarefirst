@@ -7,7 +7,7 @@ import { useState } from "react"
 const Featured = ({
   products,
 }: {
-  products: { name: string; id: number; price: number; description: number }[]
+  products: { name: string; id: number; price: number; description: string }[]
 }) => {
   const [hovering0, setHovering0] = useState(false)
   const [hovering1, setHovering1] = useState(false)
