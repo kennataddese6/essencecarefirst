@@ -5,9 +5,15 @@ import fs from "fs"
 import jwt from "jsonwebtoken"
 import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
+import { redirect } from "next/navigation"
 import path from "path"
 import { prisma } from "../lib/prisma"
 
+export const logout = async () => {
+  const cookieStore = await cookies()
+  cookieStore.delete("aji")
+  redirect("/signin")
+}
 export const login = async (prevState: any, formData: FormData) => {
   const email = formData.get("email") as string
   const user = await prisma.user.findUnique({ where: { email: email } })
