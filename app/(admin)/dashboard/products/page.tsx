@@ -8,13 +8,13 @@ export default async function Page() {
   const products = await prisma.product.findMany()
 
   return (
-    <div className="mx-8 w-full mt-16">
+    <div className="mx-8 w-full mt-16 h-5/6 overflow-y-scroll">
       <Link href={"/dashboard/products/create"}>
         <button className="py-2 px-6 bg-black text-white rounded-lg my-6 block ml-auto shadow-sm shadow-neutral-400">
           Create
         </button>
       </Link>
-      <table className="table-auto border-collapse border border-gray-300 w-full text-left">
+      <table className="table-auto border-collapse border border-gray-300 w-full text-left ">
         <thead>
           <tr className="bg-neutral-400">
             <th className="border border-gray-300 px-4 py-2"> Product ID</th>
@@ -32,7 +32,7 @@ export default async function Page() {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) => (
+          {products.map((product: any, index: any) => (
             <tr className="hover:bg-gray-50" key={index}>
               <td className="border border-gray-300 px-4 py-2">{product.id}</td>
 
