@@ -5,24 +5,21 @@ export async function saveImage(formData: FormData, imageName: string) {
   const image: any = formData.get("image")
   const imageDir = path.join(process.cwd(), "storage/images")
   const imagePath = path.join(imageDir, imageName + ".webp")
-  const buffer: any = Buffer.from(await image.arrayBuffer())
+  const buffer = Buffer.from(await image.arrayBuffer())
 
+  // Ensure the directory exists synchronously before proceeding
+  if (!fs.existsSync(imageDir)) {
+    fs.mkdirSync(imageDir, { recursive: true })
+  }
+
+  // Save the image file
   return new Promise((resolve, reject) => {
-    // Ensure the directory exists
-    fs.mkdir(imageDir, { recursive: true }, (err) => {
+    fs.writeFile(imagePath, buffer, (err) => {
       if (err) {
-        reject(err) // Handle directory creation error
-        return
+        reject(err) // Handle file write error
+      } else {
+        resolve(image.name) // File successfully saved
       }
-
-      // Write the image file
-      fs.writeFile(imagePath, buffer, (err) => {
-        if (err) {
-          reject(err) // Handle file write error
-        } else {
-          resolve(image.name) // Successfully saved
-        }
-      })
     })
   })
 }
