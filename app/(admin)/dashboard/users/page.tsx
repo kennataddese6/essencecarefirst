@@ -22,7 +22,7 @@ export default async function Page() {
           </tr>
         </thead>
         <tbody>
-          {users.map((user, index) => (
+          {users.map((user: any, index: any) => (
             <tr className="hover:bg-gray-50" key={index}>
               <td className="border border-gray-300 px-4 py-2">{user.id}</td>
 
