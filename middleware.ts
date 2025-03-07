@@ -1,0 +1,25 @@
+import { headers } from "next/headers"
+import { NextRequest, NextResponse } from "next/server"
+export default async function middleware(req: NextRequest) {
+  const header = await headers()
+  const protectedRoutes = "/dashboard"
+  const currentPath = req.nextUrl.pathname
+  if (currentPath.includes(protectedRoutes)) {
+    try {
+      const res = await fetch("http://localhost:3000/verify-session", {
+        headers: header,
+      })
+      if (!res.ok) {
+        throw new Error("Unauthorized access")
+      }
+    } catch (error: any) {
+      return NextResponse.redirect(new URL("/signin", req.nextUrl.origin))
+    }
+  }
+}
+
+export const config = {
+  matcher: [
+    "/((?!api|_next/static|_next/image|manual/*|favicon.ico|/terms&conditions|sitemap.xml|robots.txt).*)",
+  ],
+}
