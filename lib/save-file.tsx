@@ -3,17 +3,17 @@ import path from "path"
 
 export async function saveImage(formData: FormData, imageName: string) {
   const image: any = formData.get("image")
-  const imageDir = path.join("/tmp", "storage/images")
-  const imagePath = path.join(imageDir, imageName + ".webp")
-  const buffer = Buffer.from(await image.arrayBuffer())
-
-  if (!fs.existsSync(imageDir)) {
-    fs.mkdirSync(imageDir, { recursive: true })
-  }
+  const imagePath = path.join(
+    process.cwd(),
+    "storage/images",
+    imageName + ".WebP",
+  )
+  const buffer: any = Buffer.from(await image.arrayBuffer())
 
   return new Promise((resolve, reject) => {
     fs.writeFile(imagePath, buffer, (err) => {
       if (err) {
+        console.error("Error writing the file:", err)
         reject(err)
       } else {
         resolve(image.name)

@@ -97,7 +97,6 @@ export const createProduct = async (prevState: any, formData: FormData) => {
       },
     })
     await saveImage(formData, newProduct.id.toString())
-    revalidatePath("/dashboard/products")
     return { success: true, error: false, errorMessage: "" }
   } catch (error: any) {
     if (error.code == "P2002") {
