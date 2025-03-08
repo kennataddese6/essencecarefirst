@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "npx prisma db push --accept-data-loss && npx prisma generate && next build",
-    "start": "next start",
+    "start": "npx prisma db push --accept-data-loss && npx prisma generate && next build && next start",
     "lint": "next lint"
   },
   "dependencies": {
