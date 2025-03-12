@@ -1,12 +1,13 @@
-import { prisma } from "@/app/lib/prisma"
+import { pool } from "@/app/db"
 import { notFound } from "next/navigation"
 import ProductUI from "./product-ui"
-
 export async function generateMetadata({ params }: any) {
-  const productId = Number(params.id)
-  const product = await prisma.product.findUnique({
-    where: { id: productId },
-  })
+  const client = await pool.connect()
+  const productRes = await client.query(
+    'SELECT * FROM "Product" WHERE id = $1',
+    [Number(params.id)],
+  )
+  const product = productRes.rows[0]
   if (product) {
     return {
       title: `${product.name} - Essence care first`,
@@ -17,9 +18,12 @@ export async function generateMetadata({ params }: any) {
 
 const page = async ({ params }: any) => {
   const param = await params
-  const product = await prisma.product.findUnique({
-    where: { id: Number(param.id) },
-  })
+  const client = await pool.connect()
+  const productRes = await client.query(
+    'SELECT * FROM "Product" WHERE id = $1',
+    [Number(param.id)],
+  )
+  const product = productRes.rows[0]
   if (!product) {
     notFound()
   }

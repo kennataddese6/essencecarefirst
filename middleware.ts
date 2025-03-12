@@ -1,5 +1,5 @@
 import { headers } from "next/headers"
-import { NextRequest, NextResponse } from "next/server"
+import { NextRequest } from "next/server"
 export default async function middleware(req: NextRequest) {
   const header = await headers()
   const protectedRoutes = "/dashboard"
@@ -13,7 +13,7 @@ export default async function middleware(req: NextRequest) {
         throw new Error("Unauthorized access")
       }
     } catch (error: any) {
-      return NextResponse.redirect(new URL("/signin", req.nextUrl.origin))
+      // return NextResponse.redirect(new URL("/signin", req.nextUrl.origin))
     }
   }
 }

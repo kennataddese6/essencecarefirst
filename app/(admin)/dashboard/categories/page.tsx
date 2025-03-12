@@ -1,10 +1,12 @@
 import { deleteCategory } from "@/app/action/action"
-import { prisma } from "@/app/lib/prisma"
 import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
 
+import { pool } from "@/app/db"
 export default async function Page() {
-  const categories = await prisma.category.findMany()
+  const client = await pool.connect()
+  const categoriesRes = await client.query('SELECT * FROM "Category"') // Use quotes if table name has uppercase letters
+  const categories = categoriesRes.rows
 
   return (
     <div className="mx-8 w-full mt-16">

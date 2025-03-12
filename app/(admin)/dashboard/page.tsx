@@ -1,9 +1,16 @@
-import { prisma } from "@/app/lib/prisma"
-
+import { pool } from "@/app/db"
 const Page = async () => {
-  const users = await prisma.user.findMany()
-  const products = await prisma.product.findMany()
-  const categories = await prisma.category.findMany()
+  const client = await pool.connect()
+  const [usersRes, productsRes, categoriesRes] = await Promise.all([
+    client.query('SELECT * FROM "User"'),
+    client.query('SELECT * FROM "Product"'),
+    client.query('SELECT * FROM "Category"'),
+  ])
+
+  const users = usersRes.rows
+  const products = productsRes.rows
+  const categories = categoriesRes.rows
+
   return (
     <div className="flex items-start gap-4 flex-wrap m-12">
       <div className="bg-black text-white py-8 px-16 rounded-xl shadow-lg shadow-neutral-700">

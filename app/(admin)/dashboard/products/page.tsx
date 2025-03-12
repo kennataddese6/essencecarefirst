@@ -1,11 +1,13 @@
 import { deleteProduct } from "@/app/action/action"
-import { prisma } from "@/app/lib/prisma"
 import Image from "next/image"
 import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
 
+import { pool } from "@/app/db"
 export default async function Page() {
-  const products = await prisma.product.findMany()
+  const client = await pool.connect()
+  const productRes = await client.query('SELECT * FROM "Product"')
+  const products = productRes.rows
 
   return (
     <div className="mx-8 w-full mt-16 h-5/6 overflow-y-scroll">

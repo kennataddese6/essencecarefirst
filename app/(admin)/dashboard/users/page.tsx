@@ -1,9 +1,11 @@
 import { deleteUser } from "@/app/action/action"
-import { prisma } from "@/app/lib/prisma"
+import { pool } from "@/app/db"
 import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
 export default async function Page() {
-  const users = await prisma.user.findMany()
+  const client = await pool.connect()
+  const usersRes = await client.query('SELECT * FROM "User"')
+  const users = usersRes.rows
 
   return (
     <div className="mx-8 w-full mt-16">

@@ -1,15 +1,19 @@
-import { prisma } from "@/app/lib/prisma"
-import { notFound } from "next/navigation"
+import { pool } from "@/app/db"
 import Featured from "./featured"
 
 const FeaturedProducts = async () => {
-  const products = await prisma.product.findMany({
-    where: { category: "Featured" },
-  })
-  if (!products) {
-    notFound()
+  const client = await pool.connect()
+  try {
+    const productsRes = await client.query(
+      'SELECT * FROM "Product" WHERE category = $1',
+      ["Featured"],
+    )
+    const products = productsRes.rows
+
+    return <Featured products={products} />
+  } finally {
+    client.release()
   }
-  return <Featured products={products} />
 }
 
 export default FeaturedProducts

@@ -1,4 +1,4 @@
-import { prisma } from "@/app/lib/prisma"
+import { pool } from "@/app/db"
 import ProductCard from "@/app/ui/products-card"
 import CategoryCard from "./category-card"
 
@@ -15,18 +15,20 @@ const Products = async (props: {
     ? [searchParams.category]
     : []
 
-  const categories = await prisma.category.findMany()
+  const client = await pool.connect()
+  const categoriesRes = await client.query('SELECT * FROM "Category"') // Use quotes if table name has uppercase letters
+  const categories = categoriesRes.rows
 
-  const products = await prisma.product.findMany({
-    where:
-      categoriesToFilter.length > 0
-        ? {
-            category: {
-              in: categoriesToFilter,
-            },
-          }
-        : {},
-  })
+  let query = 'SELECT * FROM "Product"'
+  let values: any[] = []
+
+  if (categoriesToFilter.length > 0) {
+    query += " WHERE category = ANY($1)"
+    values.push(categoriesToFilter)
+  }
+
+  const productsRes = await client.query(query, values)
+  const products = productsRes.rows
 
   return (
     <div className="mt-20 md:mt-32  md:mx-20 md:flex flex-wrap justify-center md:justify-between items-start">
