@@ -74,7 +74,6 @@ export const createUser = async (prevState: any, formData: FormData) => {
       'INSERT INTO "User" (name, email, password) VALUES ($1, $2, $3)',
       [formData.get("name"), formData.get("email"), hashedPassword],
     )
-    revalidatePath("/dashboard")
     return { success: true, error: false, errorMessage: "" }
   } catch (error: any) {
     if (error.code == "23505") {

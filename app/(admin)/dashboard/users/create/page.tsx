@@ -65,13 +65,24 @@ const Page = () => {
               required
             />
           </LabelInputContainer>
-          <button
-            className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
-            type="submit"
-          >
-            Add User &rarr;
-            <BottomGradient />
-          </button>
+          {isPending ? (
+            <button
+              className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
+              type="submit"
+              disabled
+            >
+              Adding User...
+              <BottomGradient />
+            </button>
+          ) : (
+            <button
+              className="bg-gradient-to-br relative group/btn from-black  to-neutral-600 block  w-full text-white rounded-md h-10 font-medium shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] "
+              type="submit"
+            >
+              Add User &rarr;
+              <BottomGradient />
+            </button>
+          )}
         </form>
         <Link href={"/dashboard/users"} className="text-blacck">
           <FaArrowLeft className="inline mx-2" />
