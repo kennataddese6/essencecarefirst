@@ -2,6 +2,8 @@ import { pool } from "@/app/db"
 import ProductCard from "@/app/ui/products-card"
 import CategoryCard from "./category-card"
 
+export const dynamic = "force-dynamic"
+
 const Products = async (props: {
   searchParams: Promise<{
     category?: string | string[]

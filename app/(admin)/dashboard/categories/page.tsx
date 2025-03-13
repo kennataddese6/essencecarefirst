@@ -3,6 +3,8 @@ import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
 
 import { pool } from "@/app/db"
+export const dynamic = "force-dynamic"
+
 export default async function Page() {
   const client = await pool.connect()
   const categoriesRes = await client.query('SELECT * FROM "Category"') // Use quotes if table name has uppercase letters

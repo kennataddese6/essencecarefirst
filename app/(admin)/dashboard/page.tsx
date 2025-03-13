@@ -1,4 +1,7 @@
 import { pool } from "@/app/db"
+
+export const dynamic = "force-dynamic"
+
 const Page = async () => {
   const client = await pool.connect()
   const [usersRes, productsRes, categoriesRes] = await Promise.all([

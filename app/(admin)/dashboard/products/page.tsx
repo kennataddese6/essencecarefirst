@@ -3,6 +3,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
 
+export const dynamic = "force-dynamic"
+
 import { pool } from "@/app/db"
 export default async function Page() {
   const client = await pool.connect()

@@ -2,6 +2,9 @@ import { deleteUser } from "@/app/action/action"
 import { pool } from "@/app/db"
 import Link from "next/link"
 import { FaTrashAlt } from "react-icons/fa"
+
+export const dynamic = "force-dynamic"
+
 export default async function Page() {
   const client = await pool.connect()
   const usersRes = await client.query('SELECT * FROM "User"')
