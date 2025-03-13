@@ -30,7 +30,7 @@ const ProductUI = ({
             index={0}
           >
             <Image
-              src={`http://localhost:3000/image/${product.id}`}
+              src={`${process.env.NEXT_PUBLIC_API_URL}/image/${product.id}`}
               alt="image"
               width={500}
               height={500}

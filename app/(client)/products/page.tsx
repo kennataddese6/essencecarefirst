@@ -43,7 +43,7 @@ const Products = async (props: {
                 <ProductCard
                   key={index}
                   {...product}
-                  image={`http://localhost:3000/image/${product.id}`}
+                  image={`${process.env.NEXT_PUBLIC_API_URL}/image/${product.id}`}
                 />
               ))
             ) : (
