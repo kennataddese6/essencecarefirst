@@ -5,6 +5,8 @@ import Lead from "@/components/ui/lead"
 import Location from "@/components/ui/location"
 import Misson from "@/components/ui/mission"
 
+export const dynamic = "force-dynamic"
+
 export default function Page() {
   return (
     <>
