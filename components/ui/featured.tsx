@@ -20,7 +20,7 @@ const Featured = ({
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Featured Products
       </h1>
-      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6  mx-20 mt-12">
+      <div className=" grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mx-8 md:mx-20 mt-12">
         {products.map((product, index) => (
           <motion.div
             key={index}
