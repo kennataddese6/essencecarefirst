@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "motion/react"
+import Link from "next/link"
 const Lead = () => {
   return (
     <div className=" bg-[url(/leads-image.jpg)] h-5/6 bg-no-repeat bg-cover mt-24 flex items-center">
@@ -21,14 +22,16 @@ const Lead = () => {
           We provide the best choices for you. Adjust it to your health needs
           and make sure you get them whenever you need them.
         </motion.p>
-        <motion.button
-          initial={{ translateY: 50, opacity: 0 }}
-          whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ type: "spring", duration: 0.7, delay: 0.5 }}
-          className="py-2 px-8 border-2 border-[#17323D] text-[#17323D] font-semibold block mx-auto md:inline"
-        >
-          View Products
-        </motion.button>
+        <Link href="/products" className="no-underline">
+          <motion.button
+            initial={{ translateY: 50, opacity: 0 }}
+            whileInView={{ translateY: 0, opacity: 1 }}
+            transition={{ type: "spring", duration: 0.7, delay: 0.5 }}
+            className="py-2 px-8 border-2 border-[#17323D] text-[#17323D] font-semibold block mx-auto md:inline"
+          >
+            View Products
+          </motion.button>
+        </Link>
       </div>
     </div>
   )
