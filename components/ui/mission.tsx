@@ -1,13 +1,19 @@
+"use client"
+import { motion } from "motion/react"
 import Image from "next/image"
-
 const Misson = () => {
   return (
     <div className="mt-16">
       <h1 className="text-center text-3xl md:text-4xl text-[#17323D] font-semibold">
         Our Mission
       </h1>
-      <div className="mt-16 flex flex-wrap gap-12 md:gap-0 md:mx-20   overflow-hidden">
-        <div className="md:w-1/2 w-full">
+      <div className="mt-16 flex flex-wrap gap-12 md:gap-0 md:mx-20 px-4">
+        <motion.div
+          className="md:w-1/2 w-full"
+          initial={{ rotateZ: -75, translateX: "-95%" }}
+          whileInView={{ rotateZ: 0, translateX: "0%" }}
+          transition={{ duration: 1.5, delay: 0.1 }}
+        >
           <Image
             src={"/mission.jpeg"}
             alt="Mission Image"
@@ -15,7 +21,7 @@ const Misson = () => {
             height={600}
             className="block mx-auto  w-full bg-cover rounded-3xl shadow-2xl shadow-neutral-600"
           />
-        </div>
+        </motion.div>
         <div className="md:w-1/2 flex items-center md:pl-12 md:pr-20">
           <div>
             <h1 className="text-center md:text-start text-3xl md:text-4xl text-[#17323D] font-semibold">
