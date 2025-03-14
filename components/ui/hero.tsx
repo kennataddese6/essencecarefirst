@@ -1,5 +1,6 @@
 import { inter } from "@/lib/font"
 import Link from "next/link"
+import { GoArrowUpRight } from "react-icons/go"
 import { TextGenerateEffect } from "./text-generate-effect"
 const words = [
   {
@@ -32,8 +33,8 @@ export default function Hero() {
           equipment from around the globe to Ethiopia.
         </p>
         <Link href="/products" className="no-underline">
-          <button className="px-8 py-2 my-3 bg-[#17323D] text-white rounded-sm block mx-auto md:mx-0">
-            Shop Now
+          <button className="px-8 py-2 my-3 bg-[#17323D] text-white rounded-sm block mx-auto md:mx-0 ">
+            Shop Now <GoArrowUpRight className="inline" />
           </button>
         </Link>
       </div>

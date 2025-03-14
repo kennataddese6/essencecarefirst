@@ -1,6 +1,7 @@
 "use client"
 import { motion } from "motion/react"
 import Link from "next/link"
+import { GoArrowUpRight } from "react-icons/go"
 const Lead = () => {
   return (
     <div className=" bg-[url(/leads-image.jpg)] h-5/6 bg-no-repeat bg-cover mt-24 flex items-center">
@@ -27,9 +28,9 @@ const Lead = () => {
             initial={{ translateY: 50, opacity: 0 }}
             whileInView={{ translateY: 0, opacity: 1 }}
             transition={{ type: "spring", duration: 0.7, delay: 0.5 }}
-            className="py-2 px-8 border-2 border-[#17323D] text-[#17323D] font-semibold block mx-auto md:inline"
+            className="py-2 px-8 border-2 border-[#17323D] text-[#17323D] font-semibold block mx-auto md:inline hover:bg-[#17323d] hover:text-white hover:shadow-md hover:shadow-[#17323d]"
           >
-            View Products
+            View Products <GoArrowUpRight className="inline" />
           </motion.button>
         </Link>
       </div>

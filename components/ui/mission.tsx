@@ -2,6 +2,7 @@
 import { motion } from "motion/react"
 import Image from "next/image"
 import Link from "next/link"
+import { GoArrowUpRight } from "react-icons/go"
 const Misson = () => {
   return (
     <div className="mt-16">
@@ -23,13 +24,13 @@ const Misson = () => {
             className="block mx-auto  w-full bg-cover rounded-3xl "
           />
         </motion.div>
-        <div className="md:w-1/2 flex items-center md:pl-12 md:pr-20">
+        <div className="md:w-1/2 flex items-center md:pl-12 md:pr-28">
           <div>
             <motion.h1
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.2, delay: 1.8 }}
-              className="text-center md:text-start text-3xl md:text-4xl text-[#17323D] font-semibold"
+              className="text-center md:text-start md:mx-1 text-3xl md:text-4xl text-[#17323D] font-semibold"
             >
               Your health is more important to us
             </motion.h1>
@@ -42,16 +43,16 @@ const Misson = () => {
               We are dedicated to enhancing healthcare by providing top-tier
               medical equipment from around the globe.Our commitment to
               excellence ensures that healthcare providers have access to the
-              latest reliable tools.
+              latest tools.
             </motion.p>
             <Link href={"/about"}>
               <motion.button
-                className="border-2 border-[#5B5B5B] px-4 py-2 mx-2 my-3 w-auto "
+                className="border-2 border-[#17323d] px-4 py-2 mx-2 my-3 w-auto hover:bg-[#17323d] hover:text-white hover:shadow-md hover:shadow-[#17323d]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 2.2 }}
               >
-                Learn More
+                Learn More <GoArrowUpRight className="inline" />
               </motion.button>
             </Link>
           </div>
