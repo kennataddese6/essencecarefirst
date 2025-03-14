@@ -19,7 +19,7 @@ const Misson = () => {
             alt="Mission Image"
             width={1200}
             height={600}
-            className="block mx-auto  w-full bg-cover rounded-3xl shadow-2xl shadow-neutral-600"
+            className="block mx-auto  w-full bg-cover rounded-3xl "
           />
         </motion.div>
         <div className="md:w-1/2 flex items-center md:pl-12 md:pr-20">
