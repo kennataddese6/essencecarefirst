@@ -4,7 +4,7 @@ import Link from "next/link"
 const Lead = () => {
   return (
     <div className=" bg-[url(/leads-image.jpg)] h-5/6 bg-no-repeat bg-cover mt-24 flex items-center">
-      <div className="md:w-1/3 mx-4 md:mx-20">
+      <div className="md:w-2/5 mx-4 md:mx-20">
         <motion.h1
           className="text-4xl  text-[#17323D] font-semibold text-center md:text-start"
           initial={{ translateY: 50, opacity: 0 }}
