@@ -43,7 +43,7 @@ const Products = async (props: {
                 <ProductCard
                   key={index}
                   {...product}
-                  image={`${process.env.NEXT_PUBLIC_API_URL}/image/${product.id}`}
+                  image={`https://res.cloudinary.com/dlmxydxdt/image/upload/v1744484803/${product.id}.webp`}
                 />
               ))
             ) : (

@@ -63,7 +63,7 @@ const Featured = ({
                 index={index}
               >
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/image/${product.id}`}
+                  src={`https://res.cloudinary.com/dlmxydxdt/image/upload/v1744484803/${product.id}.webp`}
                   alt="image"
                   width={500}
                   height={500}

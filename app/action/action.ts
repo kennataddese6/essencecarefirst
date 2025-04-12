@@ -3,12 +3,11 @@
 import { pool } from "@/app/db"
 import { saveImage } from "@/lib/save-file"
 import bcrypt from "bcryptjs"
-import fs from "fs"
+import { v2 as cloudinaryV2 } from "cloudinary"
 import jwt from "jsonwebtoken"
 import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
-import path from "path"
 
 export const logout = async () => {
   const cookieStore = await cookies()
@@ -143,7 +142,6 @@ export const createProduct = async (prevState: any, formData: FormData) => {
     client.release()
   }
 }
-
 export const deleteCategory = async (formData: FormData) => {
   const categoryId = parseInt(formData.get("categoryid") as string, 10)
   if (isNaN(categoryId)) return
@@ -167,14 +165,8 @@ export const deleteProduct = async (formData: FormData) => {
   try {
     await client.query('DELETE FROM "Product" WHERE id = $1', [productId])
 
-    const filePath = path.join(
-      process.cwd(),
-      "storage/images",
-      `${productId}.WebP`,
-    )
-    if (fs.existsSync(filePath)) {
-      fs.unlinkSync(filePath)
-    }
+    const publicId = productId.toString()
+    await cloudinaryV2.uploader.destroy(publicId)
 
     revalidatePath("/dashboard/products")
   } finally {

@@ -1,12 +1,9 @@
 import fs from "fs"
-import path from "path"
 export async function GET(req: any, { params }: any) {
   const param = await params
   try {
-    const imagePath = path.join(
-      process.cwd(),
-      `storage/images/${param.id}.WebP`,
-    )
+    const imagePath = `https://res.cloudinary.com/dlmxydxdt/image/upload/v1744484803/${param.id}.webp` // Adjust the URL as per your Cloudinary setup
+
     const imageBuffer = fs.readFileSync(imagePath)
     return new Response(imageBuffer, {
       headers: {

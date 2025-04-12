@@ -54,7 +54,7 @@ export default async function Page() {
               </td>
               <td className="border border-gray-300 px-4 py-2">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_API_URL}/image/${product.id}`}
+                  src={`https://res.cloudinary.com/dlmxydxdt/image/upload/v1744484803/${product.id}.webp`}
                   width={50}
                   height={50}
                   alt={product.name}

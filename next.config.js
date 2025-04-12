@@ -6,6 +6,7 @@ module.exports = {
       "assets.example.com",
       "essence.dev.solomonmoalawoffice.com",
       "solomonmoalawoffice.com",
+      "res.cloudinary.com",
     ],
   },
 }
