@@ -8,14 +8,23 @@ const About = () => {
           About us
         </h1>
         <p className="mt-4 mx-1 md:mx-0 md:pr-12 text-center md:text-start">
-          We are a dedicated team inspired to provide the best medical health
-          care in ethiopia. We strive for excellence and are going to keep up
-          with the best techonologies out there. We are a dedicated team
-          inspired to provide the best medical health care in ethiopia. We
-          strive for excellence and are going to keep up with the best
-          techonologies out there inspired to provide the best medical health
-          care in ethiopia. We strive for excellence and are going to keep up
-          with the best techonologies out there
+          We are a dedicated team inspired to provide the best medical
+          healthcare in Ethiopia. Our mission is to enhance the well-being of
+          our community through exceptional care, cutting-edge technologies, and
+          a patient-centered approach. We strive for excellence in every aspect
+          of our work, from the quality of service we provide to the continuous
+          improvement of our skills and knowledge. At the heart of our vision is
+          a commitment to staying ahead of medical advancements. We understand
+          the importance of incorporating the latest technologies and innovative
+          treatments to offer the most effective healthcare solutions. Whether
+          its in diagnostics, treatment options, or patient care, we aim to lead
+          by example, ensuring that each individual receives the highest
+          standard of care. Our team consists of passionate professionals who
+          are dedicated to improving the healthcare landscape in Ethiopia. We
+          believe that every patient deserves access to world-class medical
+          services, and we are here to make that a reality. Together, we work
+          towards a healthier future, fostering trust, compassion, and
+          excellence every step of the way.
         </p>
       </div>
       <div className="md:w-1/2">
