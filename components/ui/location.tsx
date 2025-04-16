@@ -14,13 +14,13 @@ export default function Location() {
         </motion.h2>
         <p className="text-center md:text-start text-[#5B5B5B] text-md mx-2 md:text-xl my-3 ">
           {" "}
-          Our address in bole in front of Ethiopian airlines on the first left
-          to Civil Avaiation in Addis Ababa, Ethiopia
+          You can find us in Bole Bulbula around Mariam Mazoria in Addis Ababa,
+          Ethiopia
         </p>
       </div>
       <div className="w-full lg:w-1/2 rounded-3xl">
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.8311494583613!2d38.787831774066376!3d8.987680189636338!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b853c14f0e2d5%3A0x32ce0404870c8088!2sEthiopian%20Skylight%20Hotel!5e0!3m2!1sen!2set!4v1730382389754!5m2!1sen!2set"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941.2302892245193!2d38.78707612477984!3d8.950915241107333!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b831ada269b0b%3A0x6eaf862dc8b1e110!2zQm9sZSBCdWxidWxhIE1hcnlhbSBNYXpvcnlhIHwg4Ymm4YiMIOGJoeGIjeGJoeGIiyDhiJvhiK3hi6vhiJ0g4Yib4Yue4Yit4Yur!5e0!3m2!1sen!2set!4v1744784784077!5m2!1sen!2set"
           height="450"
           allowFullScreen
           loading="lazy"

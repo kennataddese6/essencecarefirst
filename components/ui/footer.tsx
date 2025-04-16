@@ -52,7 +52,7 @@ const Footer = () => {
           </p>
           <p className="text-[#17323d]">
             <MdLocationOn className="inline mx-1 text-xl" />
-            Bole, A.A Ethiopia
+            Bole Bulbula, A.A Ethiopia
           </p>
         </div>
       </div>
