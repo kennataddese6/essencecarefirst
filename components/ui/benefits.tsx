@@ -21,7 +21,7 @@ const Benefits = () => {
           className="p-8"
           initial={{ translateY: 50, opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ duration: 0.8, type: "spring", delay: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", delay: 0.4 }}
         >
           <GiHealthPotion
             fontSize={72}
@@ -38,7 +38,7 @@ const Benefits = () => {
           className="p-8"
           initial={{ translateY: 50, opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ duration: 0.4, type: "spring", delay: 0.4 }}
+          transition={{ duration: 0.4, type: "spring", delay: 0.6 }}
         >
           <FaUserDoctor
             fontSize={72}
@@ -55,7 +55,7 @@ const Benefits = () => {
           className="p-8"
           initial={{ translateY: 50, opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ duration: 0.4, type: "spring", delay: 0.4 }}
+          transition={{ duration: 0.4, type: "spring", delay: 0.8 }}
         >
           <AiOutlineMedicineBox
             fontSize={72}
@@ -72,7 +72,7 @@ const Benefits = () => {
           className="p-8"
           initial={{ translateY: 50, opacity: 0 }}
           whileInView={{ translateY: 0, opacity: 1 }}
-          transition={{ duration: 0.8, type: "spring", delay: 0.8 }}
+          transition={{ duration: 0.8, type: "spring", delay: 0.9 }}
         >
           <BsShieldCheck
             fontSize={72}

@@ -15,7 +15,7 @@ const Footer = () => {
       <div>
         <Image src={"/logo.png"} alt="Logo" width={100} height={100} />
         <span className="md:px-4 text-[#17323d]">
-          Providing the best medical equipments in Ethiopia
+          Providing the best quality medicine and medical equipment in Ethiopia
         </span>
       </div>
       <div className="min-w-52 ">
