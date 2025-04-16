@@ -2,9 +2,10 @@
 import { inter } from "@/lib/font"
 import { motion } from "motion/react"
 import { AiOutlineMedicineBox } from "react-icons/ai"
-import { BsFileEarmarkMedical } from "react-icons/bs"
+import { BsShieldCheck } from "react-icons/bs"
 import { FaUserDoctor } from "react-icons/fa6"
 import { GiHealthPotion } from "react-icons/gi"
+
 const Benefits = () => {
   return (
     <div className="mt-16">
@@ -44,7 +45,7 @@ const Benefits = () => {
             className="text-[#17323D] block mx-auto"
           />
           <h2 className={`text-center text-lg ${inter.className} font-medium`}>
-            Assure quality
+            Expert design
           </h2>
           <p className="text-[#5B5B5B] text-center">
             Designed with precision just for your needs.
@@ -61,7 +62,7 @@ const Benefits = () => {
             className="text-[#17323D] block mx-auto"
           />
           <h2 className={`text-center text-lg ${inter.className} font-medium`}>
-            Assure quality
+            Trusted materials
           </h2>
           <p className="text-[#5B5B5B] text-center">
             Premium quality you can always rely on
@@ -73,12 +74,12 @@ const Benefits = () => {
           whileInView={{ translateY: 0, opacity: 1 }}
           transition={{ duration: 0.8, type: "spring", delay: 0.8 }}
         >
-          <BsFileEarmarkMedical
+          <BsShieldCheck
             fontSize={72}
             className="text-[#17323D] block mx-auto"
           />
           <h2 className={`text-center text-lg ${inter.className} font-medium`}>
-            Assure quality
+            Long lasting
           </h2>
           <p className="text-[#5B5B5B] text-center">
             Engineered for excellence, built to last.
