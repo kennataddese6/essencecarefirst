@@ -31,7 +31,7 @@ const Featured = ({
               duration: 0.9,
               type: "spring",
             }}
-            className="w-full relative rounded-3xl overflow-hidden  max-w-md mx-auto bg-gradient-to-r bg-black p-8 "
+            className="w-full relative rounded-3xl overflow-hidden  max-w-md mx-auto bg-gradient-to-r shadow-md border-2 border-neutral-100 bg-white p-8 "
           >
             {/* <Rays /> */}
             <Beams />
@@ -76,10 +76,10 @@ const Featured = ({
                 }}
                 className="py-4 relative z-20"
               >
-                <h2 className="text-white text-2xl text-left font-bold">
+                <h2 className="text-black text-2xl text-left font-bold">
                   {product.name}
                 </h2>
-                <p className="text-neutral-200 text-left  mt-4 line-clamp-2">
+                <p className="text-neutral-800 text-left  mt-4 line-clamp-2">
                   {product.description}
                 </p>
               </motion.div>

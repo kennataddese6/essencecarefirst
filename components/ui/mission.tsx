@@ -45,9 +45,9 @@ const Misson = () => {
               excellence ensures that healthcare providers have access to the
               latest tools.
             </motion.p>
-            <Link href={"/about"}>
+            <Link href={"/about"} className=" block text-center md:text-start">
               <motion.button
-                className="border-2 border-[#17323d] px-4 py-2 mx-2 my-3 w-auto hover:bg-[#17323d] hover:text-white hover:shadow-md hover:shadow-[#17323d]"
+                className="border-2 border-[#17323d] px-4 py-2  mx-2 my-3 w-auto hover:bg-[#17323d] hover:text-white hover:shadow-md hover:shadow-[#17323d]"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 2.2 }}
