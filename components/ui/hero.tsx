@@ -29,8 +29,8 @@ export default function Hero() {
           {/* Empowering health care with quality */}
         </h1>
         <p className={`${inter.className} md:pr-24 text-center md:text-start`}>
-          We are dedicated to enhancing healthcare by providing top-tier medical
-          equipment from around the globe to Ethiopia.
+          We are dedicated to enhancing healthcare by providing top-tier
+          medicine and medical equipment from around the globe to Ethiopia.
         </p>
         <Link href="/products" className="no-underline">
           <button className="px-8 py-2 my-3 bg-[#17323D] text-white rounded-sm block mx-auto md:mx-0 ">
