@@ -1,36 +1,41 @@
-# Stage 1: Build the Next.js application
-FROM node:20-alpine AS base
+# Base image
+FROM node:18.20-alpine AS base
 
-# Set working directory
+# Dependencies layer
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
-
-# Install dependencies
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Copy rest of the application
+# Build layer
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-
-# Build the Next.js app
+ENV NEXT_TELEMETRY_DISABLED 1
 RUN npm run build
 
-# Stage 2: Runtime container
-FROM node:20-alpine AS runner
-
-# Set working directory
+# Runtime layer
+FROM base AS runner
 WORKDIR /app
 
-# Copy only necessary runtime files
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/.next ./.next
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+
+# Create non-root user
+RUN addgroup --system --gid 1001 nodejs \
+  && adduser --system --uid 1001 nextjs
+
+# Copy only what's needed
 COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
 
-# Optional: include env files if you're using them
-# COPY .env.production ./
+# Switch to non-root user
+USER nextjs
 
-# Expose Next.js port
 EXPOSE 3000
-
-# Start the Next.js app in production mode
-CMD ["npm", "run", "start"]
+CMD ["npm", "start"]
