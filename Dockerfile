@@ -1,12 +1,13 @@
 # Stage 1: Build the Next.js application
-FROM node:20-alpine AS builder
+FROM node:20-alpine AS builder  
 
 # Set working directory
 WORKDIR /app
 
 # Install dependencies
-COPY package.json package-lock.json ./
-RUN npm ci
+# package-lock.json removed this
+COPY package.json pnpm-lock.yaml ./ 
+RUN pnpm ci
 
 # Copy rest of the application
 COPY . .
