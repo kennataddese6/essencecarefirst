@@ -1,35 +1,43 @@
-# Use an official Node.js image as the base
-FROM node:23.2.0-alpine  AS base
-
-FROM base AS deps
+# 1. Base image with pnpm installed
+FROM node:18-alpine AS base
 RUN apk add --no-cache libc6-compat
+RUN corepack enable && corepack prepare pnpm@latest --activate
+
+# 2. Dependencies stage
+FROM base AS deps
 WORKDIR /app
-
-COPY package*.json ./
-# Set the working directory
-WORKDIR /app
-
-# Install pnpm globally
-RUN npm install -g pnpm
-
-# Copy package.json and pnpm-lock.yaml
-COPY package.json pnpm-lock.yaml ./
-
-# Install dependencies using pnpm
+COPY pnpm-lock.yaml package.json ./
 RUN pnpm install --frozen-lockfile
 
+# 3. Build stage
 FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
-# Copy the rest of the application files
+COPY --from=deps /app/pnpm-lock.yaml ./pnpm-lock.yaml
+COPY --from=deps /app/package.json ./package.json
 COPY . .
 
 ENV NEXT_TELEMETRY_DISABLED 1
-# Build the Next.js application
-RUN pnpm run build
+RUN pnpm build
 
-# Expose the port that the application will run on (default Next.js port)
+# 4. Production stage
+FROM base AS runner
+WORKDIR /app
+
+ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
+
+COPY --from=builder /app/public ./public
+COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/package.json ./package.json
+
+USER nextjs
+
 EXPOSE 3000
+ENV PORT 3000
 
-# Start the Next.js application
 CMD ["pnpm", "start"]
