@@ -16,47 +16,67 @@ export const logout = async () => {
 }
 
 export const login = async (prevState: any, formData: FormData) => {
-  const email = formData.get("email") as string
-  const client = await pool.connect()
+  let client
 
   try {
+    client = await pool.connect()
+
+    const email = formData.get("email") as string
+    const password = formData.get("password") as string
+
+    if (!email || !password) {
+      return {
+        success: false,
+        error: true,
+        errorMessage: "Email and password are required",
+      }
+    }
+
     const userRes = await client.query(
       'SELECT * FROM "User" WHERE email = $1',
       [email],
     )
     const user = userRes.rows[0]
 
-    if (user) {
-      const password = formData.get("password") as string
-      const isPasswordValid = await bcrypt.compare(password, user.password)
-
-      if (isPasswordValid) {
-        const token = jwt.sign(
-          { id: user.id, email: user.email },
-          process.env.JWT_SECRET as string,
-          { expiresIn: "1h" },
-        )
-
-        const cookieStore = await cookies()
-        cookieStore.set("aji", token)
-
-        return { success: true, error: false, errorMessage: "" }
-      } else {
-        return {
-          success: false,
-          error: true,
-          errorMessage: "Invalid credentials",
-        }
-      }
-    } else {
+    if (!user) {
       return {
         success: false,
         error: true,
         errorMessage: "Invalid credentials",
       }
     }
+
+    const isPasswordValid = await bcrypt.compare(password, user.password)
+
+    if (!isPasswordValid) {
+      return {
+        success: false,
+        error: true,
+        errorMessage: "Invalid credentials",
+      }
+    }
+
+    const token = jwt.sign(
+      { id: user.id, email: user.email },
+      process.env.JWT_SECRET as string,
+      { expiresIn: "1h" },
+    )
+
+    const cookieStore = await cookies()
+    cookieStore.set("aji", token)
+
+    return { success: true, error: false, errorMessage: "" }
+  } catch (err) {
+    console.error("Login error:", err) // 👈 Now also catches pool.connect() failures
+    return {
+      success: false,
+      error: true,
+      errorMessage: "Something went wrong. Please try again.",
+    }
   } finally {
-    client.release()
+    if (client) {
+      client.release()
+    }
   }
 }
 
