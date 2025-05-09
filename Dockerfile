@@ -6,8 +6,8 @@ WORKDIR /app
 
 # Install dependencies
 # package-lock.json removed this
-COPY package.json pnpm-lock.yaml ./ 
-RUN pnpm ci
+COPY package.json  ./ 
+RUN npm ci
 
 # Copy rest of the application
 COPY . .
