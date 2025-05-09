@@ -4,7 +4,7 @@ module.exports = {
     domains: [
       "localhost",
       "assets.example.com",
-      "essence.dev.solomonmoalawoffice.com",
+      "essencecarefirst-1019791011835.us-central1.run.app/",
       "solomonmoalawoffice.com",
       "res.cloudinary.com",
     ],
