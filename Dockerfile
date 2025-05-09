@@ -1,6 +1,11 @@
 # Use an official Node.js image as the base
-FROM node:23.2.0-alpine
+FROM node:23.2.0-alpine  AS base
 
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
+WORKDIR /app
+
+COPY package*.json ./
 # Set the working directory
 WORKDIR /app
 
@@ -13,9 +18,13 @@ COPY package.json pnpm-lock.yaml ./
 # Install dependencies using pnpm
 RUN pnpm install --frozen-lockfile
 
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
 # Copy the rest of the application files
 COPY . .
 
+ENV NEXT_TELEMETRY_DISABLED 1
 # Build the Next.js application
 RUN pnpm run build
 
