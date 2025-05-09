@@ -1,48 +1,26 @@
-# syntax=docker/dockerfile:1
+# Use an official Node.js image as the base
+FROM node:23.2.0-alpine
 
-ARG NODE_VERSION=23.2.0
-ARG PNPM_VERSION=9.13.0
-
-################################################################################
-FROM node:${NODE_VERSION}-alpine as base
-
+# Set the working directory
 WORKDIR /usr/src/app
 
 # Install pnpm globally
-RUN npm install -g pnpm@${PNPM_VERSION}
+RUN npm install -g pnpm
 
-################################################################################
-FROM base as deps
-
-# Copy only the files needed for installing dependencies
+# Copy package.json and pnpm-lock.yaml
 COPY package.json pnpm-lock.yaml ./
 
-# Install production dependencies
-RUN pnpm install --prod --frozen-lockfile
-
-################################################################################
-FROM deps as build
-
-# Copy the rest of the source code
-COPY . .
-
-# Install full dependencies including devDependencies
+# Install dependencies using pnpm
 RUN pnpm install --frozen-lockfile
 
-# Build the app
+# Copy the rest of the application files
+COPY . .
+
+# Build the Next.js application
 RUN pnpm run build
 
-################################################################################
-FROM base as final
-
-ENV NODE_ENV=production
-
-USER node
-
-COPY package.json ./
-COPY --from=deps /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app/.next ./.next
-
+# Expose the port that the application will run on (default Next.js port)
 EXPOSE 3000
 
-CMD pnpm start
+# Start the Next.js application
+CMD ["pnpm", "start"]
