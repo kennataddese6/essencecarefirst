@@ -35,13 +35,15 @@ export default function Navbar() {
       }`}
     >
       <div className="text-black  text-xl md:text-2xl font-bold mb-5 md:mb-0 flex justify-between items-center">
-        <Image
-          src={"/logo.png"}
-          alt="Logo image"
-          width={90}
-          height={90}
-          className="size-14 md:size-20"
-        />
+        <Link href={"/"}>
+          <Image
+            src={"/logo.png"}
+            alt="Logo image"
+            width={90}
+            height={90}
+            className="size-14 md:size-20"
+          />
+        </Link>
         <span
           className={`md:hidden ${!showMobileNav && "hidden"}`}
           onClick={() => setShowMobileNav(false)}
