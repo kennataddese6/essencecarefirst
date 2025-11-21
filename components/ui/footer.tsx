@@ -30,8 +30,12 @@ const Footer = () => {
           <Link href={"/about"} className="no-underline">
             <p className="cursor-pointer">About</p>
           </Link>
-          <Link href={"/signin"} className="no-underline">
-            <p className="cursor-pointer">Sign In</p>
+          <Link
+            href={"https://shop.essenceplc.com/"}
+            target="_blank"
+            className="no-underline"
+          >
+            <p className="cursor-pointer">Shop</p>
           </Link>
         </div>
       </div>
